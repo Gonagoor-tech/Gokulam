@@ -7,35 +7,35 @@
 
 @layer base {
   :root {
-    --background: 40 33% 98%;
-    --foreground: 30 10% 15%;
+    --background: 38 30% 97%;
+    --foreground: 26 33% 7%;
 
-    --card: 40 33% 98%;
-    --card-foreground: 30 10% 15%;
+    --card: 38 30% 97%;
+    --card-foreground: 26 33% 7%;
 
-    --popover: 40 33% 98%;
-    --popover-foreground: 30 10% 15%;
+    --popover: 38 30% 97%;
+    --popover-foreground: 26 33% 7%;
 
-    --primary: 36 55% 42%;
-    --primary-foreground: 40 33% 98%;
+    --primary: 33 45% 38%;
+    --primary-foreground: 38 30% 97%;
 
-    --secondary: 10 68% 25%;
-    --secondary-foreground: 40 33% 98%;
+    --secondary: 8 100% 20%;
+    --secondary-foreground: 38 30% 97%;
 
-    --muted: 30 10% 96%;
-    --muted-foreground: 30 10% 40%;
+    --muted: 26 20% 95%;
+    --muted-foreground: 26 8% 40%;
 
-    --accent: 36 55% 42%;
-    --accent-foreground: 40 33% 98%;
+    --accent: 33 45% 38%;
+    --accent-foreground: 38 30% 97%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 30 10% 90%;
-    --input: 30 10% 90%;
-    --ring: 36 55% 42%;
+    --border: 26 20% 86%;
+    --input: 26 20% 86%;
+    --ring: 33 45% 38%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
   }
 
   * {
@@ -47,7 +47,9 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply bg-gokulam-light text-gokulam-dark font-sans antialiased;
+    background-image: url("https://www.transparenttextures.com/patterns/exclusive-paper.png");
+    background-repeat: repeat;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -57,7 +59,7 @@
 
 @layer components {
   .section-container {
-    @apply container mx-auto px-4 py-16 md:py-24;
+    @apply container mx-auto px-4 py-20 md:py-28;
   }
   
   .section-title {
@@ -73,6 +75,34 @@
   }
   
   .glass-card {
-    @apply backdrop-blur-md bg-white/70 border border-white/20 shadow-lg;
+    @apply backdrop-blur-sm bg-white/90 border border-white/40 shadow-lg rounded-2xl;
+  }
+  
+  .elegant-shadow {
+    @apply shadow-[0_10px_30px_-5px_rgba(0,0,0,0.15)];
+  }
+  
+  .button-primary {
+    @apply px-6 py-3 bg-gokulam-burgundy text-white rounded-full hover:bg-gokulam-burgundy/90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 font-medium;
+  }
+  
+  .button-secondary {
+    @apply px-6 py-3 border-2 border-gokulam-burgundy text-gokulam-burgundy rounded-full hover:bg-gokulam-burgundy/5 transition-all duration-300 font-medium;
+  }
+  
+  .decorated-heading {
+    @apply relative inline-block;
+  }
+  
+  .decorated-heading::before, .decorated-heading::after {
+    @apply content-[''] absolute w-12 h-[2px] bg-gokulam-gold top-1/2;
+  }
+  
+  .decorated-heading::before {
+    @apply -left-16;
+  }
+  
+  .decorated-heading::after {
+    @apply -right-16;
   }
 }

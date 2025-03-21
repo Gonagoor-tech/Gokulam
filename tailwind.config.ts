@@ -63,13 +63,13 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Custom color scheme for Gokulam
+				// New refined color scheme for Gokulam
 				gokulam: {
-					gold: '#D4AF37',
-					burgundy: '#800020',
-					cream: '#F5F5DC',
-					dark: '#2C2C2C',
-					light: '#F9F6EE'
+					gold: '#C7A54B',
+					burgundy: '#67001A',
+					cream: '#F9F5EB',
+					dark: '#1A120B',
+					light: '#FDF8F0'
 				}
 			},
 			fontFamily: {
@@ -109,6 +109,20 @@ export default {
 				'pulse-subtle': {
 					'0%, 100%': { opacity: '1' },
 					'50%': { opacity: '0.8' }
+				},
+				'float-shadow': {
+					'0%, 100%': { 
+						transform: 'translateY(0)', 
+						boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)'
+					},
+					'50%': { 
+						transform: 'translateY(-10px)', 
+						boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1)' 
+					}
+				},
+				'slide-up': {
+					'0%': { transform: 'translateY(20px)', opacity: '0' },
+					'100%': { transform: 'translateY(0)', opacity: '1' }
 				}
 			},
 			animation: {
@@ -117,7 +131,13 @@ export default {
 				'fade-in': 'fade-in 0.6s ease-out',
 				'scale-in': 'scale-in 0.4s ease-out',
 				'float': 'float 6s ease-in-out infinite',
-				'pulse-subtle': 'pulse-subtle 4s ease-in-out infinite'
+				'pulse-subtle': 'pulse-subtle 4s ease-in-out infinite',
+				'float-shadow': 'float-shadow 6s ease-in-out infinite',
+				'slide-up': 'slide-up 0.6s ease-out'
+			},
+			backgroundImage: {
+				'hero-pattern': "url('https://images.unsplash.com/photo-1529059997568-3d847b1154f0?q=80&w=1000')",
+				'texture': "url('https://www.transparenttextures.com/patterns/exclusive-paper.png')"
 			}
 		}
 	},

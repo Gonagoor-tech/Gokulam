@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import AspectImage from "./ui/AspectImage";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, X, ExternalLink } from "lucide-react";
 
 interface FacultyMember {
   id: number;
@@ -72,9 +72,11 @@ const Faculty = () => {
   };
   
   return (
-    <section id="faculty" className="section-container bg-muted">
-      <div className="text-center max-w-3xl mx-auto mb-16">
-        <span className="inline-block px-3 py-1 mb-2 bg-gokulam-gold/20 text-gokulam-burgundy rounded-full font-serif">
+    <section id="faculty" className="section-container bg-muted relative">
+      <div className="absolute inset-0 bg-texture opacity-10"></div>
+      
+      <div className="text-center max-w-3xl mx-auto mb-16 relative z-10">
+        <span className="inline-block px-4 py-1 mb-3 bg-gokulam-gold/10 text-gokulam-burgundy rounded-full font-serif text-sm">
           Meet Our Mentors
         </span>
         <h2 className="section-title">Distinguished Faculty</h2>
@@ -83,11 +85,11 @@ const Faculty = () => {
         </p>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 relative z-10">
         {facultyMembers.map((member, index) => (
           <div 
             key={member.id}
-            className="glass-card rounded-xl overflow-hidden transition-all duration-500 hover:shadow-2xl group animate-fade-in"
+            className="group relative overflow-hidden rounded-2xl bg-white elegant-shadow transition-all duration-500 hover:shadow-2xl animate-fade-in"
             style={{ animationDelay: `${index * 150}ms` }}
           >
             <div className="relative overflow-hidden">
@@ -95,24 +97,27 @@ const Faculty = () => {
                 src={member.image} 
                 alt={member.name} 
                 aspectRatio={1} 
-                className="group-hover:scale-105 transition-transform duration-700"
+                className="group-hover:scale-110 transition-transform duration-700 ease-in-out"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-80"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
               <div className="absolute bottom-0 left-0 p-6 text-white">
-                <h3 className="font-serif text-xl font-bold">{member.name}</h3>
-                <p className="text-white/80">{member.title}</p>
+                <h3 className="font-serif text-2xl font-bold mb-1">{member.name}</h3>
+                <p className="text-white/80 font-light">{member.title}</p>
               </div>
             </div>
             
             <div className="p-6">
-              <p className="text-gokulam-dark/80 mb-4 line-clamp-3">{member.bio}</p>
+              <p className="text-gokulam-dark/80 mb-5 line-clamp-3 font-light">{member.bio}</p>
               <button 
                 onClick={() => openBio(member)}
-                className="inline-flex items-center text-gokulam-burgundy hover:text-gokulam-gold transition-colors"
+                className="inline-flex items-center font-medium text-gokulam-burgundy hover:text-gokulam-gold transition-colors"
               >
                 Read More <ArrowUpRight size={16} className="ml-1" />
               </button>
             </div>
+            
+            {/* Hover effect overlay */}
+            <div className="absolute inset-0 bg-gokulam-burgundy/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </div>
         ))}
       </div>
@@ -120,35 +125,40 @@ const Faculty = () => {
       {/* Bio Modal */}
       {selectedMember && (
         <div 
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
           onClick={closeBio}
         >
           <div 
-            className="bg-white rounded-xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-auto animate-scale-in"
+            className="bg-white rounded-2xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-auto animate-scale-in relative"
             onClick={e => e.stopPropagation()}
           >
+            <button 
+              onClick={closeBio}
+              className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center text-gokulam-dark hover:text-gokulam-burgundy hover:shadow-lg transition-all z-20"
+              aria-label="Close biography"
+            >
+              <X size={20} />
+            </button>
+            
             <div className="relative">
               <AspectImage 
                 src={selectedMember.image} 
                 alt={selectedMember.name} 
                 aspectRatio={16/9}
               />
-              <button 
-                onClick={closeBio}
-                className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-gokulam-dark hover:bg-white transition-colors"
-              >
-                ✕
-              </button>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+              <div className="absolute bottom-0 left-0 p-8 text-white">
+                <h3 className="font-serif text-3xl font-bold mb-1">{selectedMember.name}</h3>
+                <p className="text-white/90">{selectedMember.title}</p>
+              </div>
             </div>
             
             <div className="p-8">
-              <h3 className="font-serif text-3xl font-bold text-gokulam-burgundy mb-2">{selectedMember.name}</h3>
-              <p className="text-gokulam-dark/80 mb-6">{selectedMember.title}</p>
-              <p className="text-lg mb-6">{selectedMember.bio}</p>
+              <p className="text-lg leading-relaxed mb-8 text-gokulam-dark/90">{selectedMember.bio}</p>
               
               {selectedMember.links.length > 0 && (
                 <div>
-                  <h4 className="font-serif text-lg font-medium mb-3">Connect:</h4>
+                  <h4 className="font-serif text-lg font-medium mb-4 text-gokulam-burgundy">Connect:</h4>
                   <div className="flex flex-wrap gap-3">
                     {selectedMember.links.map((link, index) => (
                       <a 
@@ -156,9 +166,9 @@ const Faculty = () => {
                         href={link.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-4 py-2 border border-gokulam-gold text-gokulam-burgundy rounded-md hover:bg-gokulam-gold/10 transition-colors inline-flex items-center"
+                        className="px-4 py-2 bg-gokulam-light border border-gokulam-gold/30 text-gokulam-dark rounded-full hover:bg-gokulam-gold/10 transition-colors inline-flex items-center"
                       >
-                        {link.label} <ArrowUpRight size={14} className="ml-1" />
+                        {link.label} <ExternalLink size={14} className="ml-2" />
                       </a>
                     ))}
                   </div>
