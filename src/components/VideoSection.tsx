@@ -1,0 +1,94 @@
+
+import { useState, useEffect } from "react";
+
+interface VideoProps {
+  videoId: string;
+  title: string;
+}
+
+const VideoSection = () => {
+  const [latestVideo, setLatestVideo] = useState<VideoProps>({
+    videoId: "1NuitfE6FF0",
+    title: "Bengaluru Ganesha Utsava - Featured Performance"
+  });
+  
+  const featuredVideos: VideoProps[] = [
+    {
+      videoId: "1NuitfE6FF0",
+      title: "Bengaluru Ganesha Utsava - Special Feature"
+    }
+  ];
+  
+  useEffect(() => {
+    // In a real implementation, this would fetch the latest videos from the YouTube API
+    console.log("Fetching latest videos from YouTube channel");
+  }, []);
+  
+  return (
+    <section id="media" className="section-container bg-muted">
+      <div className="text-center max-w-3xl mx-auto mb-16">
+        <span className="inline-block px-3 py-1 mb-2 bg-gokulam-gold/20 text-gokulam-burgundy rounded-full font-serif">
+          Media Gallery
+        </span>
+        <h2 className="section-title">Watch Our Performances</h2>
+        <p className="text-xl text-gokulam-dark/80">
+          Experience the artistry and mastery of Carnatic flute through our recordings
+        </p>
+      </div>
+      
+      <div className="max-w-4xl mx-auto mb-16">
+        <div className="rounded-xl overflow-hidden shadow-xl">
+          <div className="aspect-w-16 aspect-h-9">
+            <iframe 
+              src={`https://www.youtube.com/embed/${latestVideo.videoId}`}
+              title={latestVideo.title}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="w-full h-full"
+            ></iframe>
+          </div>
+        </div>
+        <h3 className="font-serif text-xl font-medium mt-4 text-center">{latestVideo.title}</h3>
+      </div>
+      
+      <div className="text-center mb-10">
+        <h3 className="font-serif text-2xl font-medium mb-3">Featured Collaborations</h3>
+        <p className="text-gokulam-dark/80 max-w-2xl mx-auto">
+          Explore our special performances and collaborations with renowned artists and festivals
+        </p>
+      </div>
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {featuredVideos.map((video, index) => (
+          <div key={index} className="glass-card rounded-xl overflow-hidden">
+            <div className="aspect-w-16 aspect-h-9">
+              <iframe 
+                src={`https://www.youtube.com/embed/${video.videoId}`}
+                title={video.title}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full"
+              ></iframe>
+            </div>
+            <div className="p-4">
+              <h4 className="font-serif text-lg font-medium">{video.title}</h4>
+            </div>
+          </div>
+        ))}
+      </div>
+      
+      <div className="text-center mt-12">
+        <a 
+          href="https://www.youtube.com/@gokulamsangeethashaale" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="px-6 py-3 bg-gokulam-burgundy text-white rounded-md hover:bg-gokulam-burgundy/90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-block"
+        >
+          Visit Our YouTube Channel
+        </a>
+      </div>
+    </section>
+  );
+};
+
+export default VideoSection;
