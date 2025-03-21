@@ -2,6 +2,7 @@
 import { useState } from "react";
 import AspectImage from "./ui/AspectImage";
 import { ArrowUpRight, X, ExternalLink } from "lucide-react";
+import { Button } from "./ui/button";
 
 interface FacultyMember {
   id: number;
@@ -108,12 +109,13 @@ const Faculty = () => {
             
             <div className="p-6">
               <p className="text-gokulam-dark/80 mb-5 line-clamp-3 font-light">{member.bio}</p>
-              <button 
+              <Button 
                 onClick={() => openBio(member)}
-                className="inline-flex items-center font-medium text-gokulam-burgundy hover:text-gokulam-gold transition-colors"
+                variant="ghost"
+                className="inline-flex items-center font-medium text-gokulam-burgundy hover:text-gokulam-gold transition-colors p-0"
               >
                 Read More <ArrowUpRight size={16} className="ml-1" />
-              </button>
+              </Button>
             </div>
             
             {/* Hover effect overlay */}
