@@ -1,12 +1,14 @@
+
 import { useState } from "react";
-import AspectImage from "./ui/AspectImage";
-import { ArrowUpRight, X, ExternalLink } from "lucide-react";
+import { ChevronRight, X, ExternalLink } from "lucide-react";
 import { Button } from "./ui/button";
-import { 
-  Dialog,
-  DialogContent,
-  DialogOverlay,
-} from "./ui/dialog";
+import {
+  Sheet,
+  SheetContent,
+  SheetClose,
+  SheetHeader,
+  SheetTitle,
+} from "./ui/sheet";
 
 interface FacultyMember {
   id: number;
@@ -64,121 +66,106 @@ const facultyMembers: FacultyMember[] = [
 ];
 
 const Faculty = () => {
-  const [selectedMember, setSelectedMember] = useState<FacultyMember | null>(null);
+  const [openMemberId, setOpenMemberId] = useState<number | null>(null);
   
-  const openBio = (member: FacultyMember) => {
-    setSelectedMember(member);
+  const openBio = (id: number) => {
+    setOpenMemberId(id);
   };
   
   const closeBio = () => {
-    setSelectedMember(null);
+    setOpenMemberId(null);
   };
   
   return (
-    <section id="faculty" className="section-container bg-muted relative">
-      <div className="absolute inset-0 bg-texture opacity-10"></div>
-      
-      <div className="text-center max-w-3xl mx-auto mb-16 relative z-10">
-        <span className="inline-block px-4 py-1 mb-3 bg-gokulam-gold/10 text-gokulam-burgundy rounded-full font-serif text-sm">
-          Meet Our Mentors
-        </span>
-        <h2 className="section-title">Distinguished Faculty</h2>
-        <p className="text-xl text-gokulam-dark/80">
-          Learn from masters who bring decades of experience and passion for Carnatic music
-        </p>
-      </div>
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 relative z-10">
-        {facultyMembers.map((member, index) => (
-          <div 
-            key={member.id}
-            className="group relative overflow-hidden rounded-2xl bg-white elegant-shadow transition-all duration-500 hover:shadow-2xl animate-fade-in"
-            style={{ animationDelay: `${index * 150}ms` }}
-          >
-            <div className="relative overflow-hidden">
-              <AspectImage 
-                src={member.image} 
-                alt={member.name} 
-                aspectRatio={1} 
-                className="group-hover:scale-110 transition-transform duration-700 ease-in-out"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-              <div className="absolute bottom-0 left-0 p-6 text-white">
-                <h3 className="font-serif text-2xl font-bold mb-1">{member.name}</h3>
-                <p className="text-white/80 font-light">{member.title}</p>
-              </div>
-            </div>
-            
-            <div className="p-6">
-              <p className="text-gokulam-dark/80 mb-5 line-clamp-3 font-light">{member.bio}</p>
-              <Button 
-                onClick={() => openBio(member)}
-                variant="ghost"
-                className="inline-flex items-center font-medium text-gokulam-burgundy hover:text-gokulam-gold transition-colors p-0"
-              >
-                Read More <ArrowUpRight size={16} className="ml-1" />
-              </Button>
-            </div>
-            
-            {/* Hover effect overlay */}
-            <div className="absolute inset-0 bg-gokulam-burgundy/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-          </div>
-        ))}
-      </div>
-      
-      {/* Bio Modal using Dialog component */}
-      <Dialog open={selectedMember !== null} onOpenChange={(open) => !open && closeBio()}>
-        <DialogOverlay className="backdrop-blur-sm" />
-        <DialogContent className="bg-white rounded-2xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-auto animate-scale-in p-0 border-none">
-          <button 
-            onClick={closeBio}
-            className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center text-gokulam-dark hover:text-gokulam-burgundy hover:shadow-lg transition-all z-20"
-            aria-label="Close biography"
-          >
-            <X size={20} />
-          </button>
-          
-          {selectedMember && (
-            <>
-              <div className="relative">
-                <AspectImage 
-                  src={selectedMember.image} 
-                  alt={selectedMember.name} 
-                  aspectRatio={16/9}
+    <section id="faculty" className="py-24 bg-gradient-to-b from-slate-50 to-slate-100">
+      <div className="container px-4 mx-auto">
+        <div className="max-w-3xl mx-auto text-center mb-16">
+          <h2 className="text-4xl font-bold text-slate-800 mb-4 font-serif">Our Distinguished Faculty</h2>
+          <div className="w-24 h-1 bg-amber-500 mx-auto mb-6"></div>
+          <p className="text-lg text-slate-600">
+            Learn from masters who bring decades of experience and deep knowledge of Carnatic traditions
+          </p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {facultyMembers.map((member) => (
+            <div 
+              key={member.id}
+              className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300"
+            >
+              <div className="relative h-64 overflow-hidden">
+                <img 
+                  src={member.image} 
+                  alt={member.name} 
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                <div className="absolute bottom-0 left-0 p-8 text-white">
-                  <h3 className="font-serif text-3xl font-bold mb-1">{selectedMember.name}</h3>
-                  <p className="text-white/90">{selectedMember.title}</p>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                <div className="absolute bottom-0 left-0 p-5 text-white">
+                  <h3 className="text-xl font-bold">{member.name}</h3>
+                  <p className="text-white/80 text-sm">{member.title}</p>
                 </div>
               </div>
               
-              <div className="p-8">
-                <p className="text-lg leading-relaxed mb-8 text-gokulam-dark/90">{selectedMember.bio}</p>
-                
-                {selectedMember.links.length > 0 && (
-                  <div>
-                    <h4 className="font-serif text-lg font-medium mb-4 text-gokulam-burgundy">Connect:</h4>
-                    <div className="flex flex-wrap gap-3">
-                      {selectedMember.links.map((link, index) => (
-                        <a 
-                          key={index}
-                          href={link.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="px-4 py-2 bg-gokulam-light border border-gokulam-gold/30 text-gokulam-dark rounded-full hover:bg-gokulam-gold/10 transition-colors inline-flex items-center"
-                        >
-                          {link.label} <ExternalLink size={14} className="ml-2" />
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-                )}
+              <div className="p-5">
+                <p className="text-slate-600 mb-4 line-clamp-3">{member.bio}</p>
+                <Button 
+                  onClick={() => openBio(member.id)}
+                  variant="outline"
+                  className="w-full justify-between border-amber-500 hover:bg-amber-50 text-amber-700"
+                >
+                  Read More <ChevronRight size={16} />
+                </Button>
               </div>
-            </>
-          )}
-        </DialogContent>
-      </Dialog>
+              
+              {/* Sheet for displaying full bio */}
+              <Sheet open={openMemberId === member.id} onOpenChange={(open) => !open && closeBio()}>
+                <SheetContent className="w-[90vw] sm:max-w-md border-l-amber-200 bg-slate-50 p-0">
+                  <SheetClose className="absolute right-4 top-4 p-1 rounded-full bg-white shadow-md hover:bg-amber-50 z-50">
+                    <X className="h-5 w-5 text-slate-700" />
+                  </SheetClose>
+                  
+                  <div className="h-64 relative">
+                    <img 
+                      src={member.image} 
+                      alt={member.name} 
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                  </div>
+                  
+                  <SheetHeader className="p-6 text-left">
+                    <SheetTitle className="text-2xl font-serif text-slate-800">{member.name}</SheetTitle>
+                    <p className="text-amber-700">{member.title}</p>
+                  </SheetHeader>
+                  
+                  <div className="px-6 pb-6">
+                    <p className="text-slate-700 mb-8 leading-relaxed">{member.bio}</p>
+                    
+                    {member.links.length > 0 && (
+                      <div>
+                        <h4 className="font-medium mb-3 text-slate-800">Connect:</h4>
+                        <div className="flex flex-wrap gap-3">
+                          {member.links.map((link, index) => (
+                            <a 
+                              key={index}
+                              href={link.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="px-4 py-2 bg-white border border-amber-200 text-amber-800 rounded-md flex items-center hover:bg-amber-50 transition-colors text-sm"
+                            >
+                              {link.label} <ExternalLink size={14} className="ml-2" />
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </SheetContent>
+              </Sheet>
+            </div>
+          ))}
+        </div>
+      </div>
     </section>
   );
 };
