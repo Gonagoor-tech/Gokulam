@@ -1,8 +1,12 @@
-
 import { useState } from "react";
 import AspectImage from "./ui/AspectImage";
 import { ArrowUpRight, X, ExternalLink } from "lucide-react";
 import { Button } from "./ui/button";
+import { 
+  Dialog,
+  DialogContent,
+  DialogOverlay,
+} from "./ui/dialog";
 
 interface FacultyMember {
   id: number;
@@ -64,12 +68,10 @@ const Faculty = () => {
   
   const openBio = (member: FacultyMember) => {
     setSelectedMember(member);
-    document.body.style.overflow = "hidden";
   };
   
   const closeBio = () => {
     setSelectedMember(null);
-    document.body.style.overflow = "auto";
   };
   
   return (
@@ -124,62 +126,59 @@ const Faculty = () => {
         ))}
       </div>
       
-      {/* Bio Modal */}
-      {selectedMember && (
-        <div 
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
-          onClick={closeBio}
-        >
-          <div 
-            className="bg-white rounded-2xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-auto animate-scale-in relative"
-            onClick={e => e.stopPropagation()}
+      {/* Bio Modal using Dialog component */}
+      <Dialog open={selectedMember !== null} onOpenChange={(open) => !open && closeBio()}>
+        <DialogOverlay className="backdrop-blur-sm" />
+        <DialogContent className="bg-white rounded-2xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-auto animate-scale-in p-0 border-none">
+          <button 
+            onClick={closeBio}
+            className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center text-gokulam-dark hover:text-gokulam-burgundy hover:shadow-lg transition-all z-20"
+            aria-label="Close biography"
           >
-            <button 
-              onClick={closeBio}
-              className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center text-gokulam-dark hover:text-gokulam-burgundy hover:shadow-lg transition-all z-20"
-              aria-label="Close biography"
-            >
-              <X size={20} />
-            </button>
-            
-            <div className="relative">
-              <AspectImage 
-                src={selectedMember.image} 
-                alt={selectedMember.name} 
-                aspectRatio={16/9}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-              <div className="absolute bottom-0 left-0 p-8 text-white">
-                <h3 className="font-serif text-3xl font-bold mb-1">{selectedMember.name}</h3>
-                <p className="text-white/90">{selectedMember.title}</p>
-              </div>
-            </div>
-            
-            <div className="p-8">
-              <p className="text-lg leading-relaxed mb-8 text-gokulam-dark/90">{selectedMember.bio}</p>
-              
-              {selectedMember.links.length > 0 && (
-                <div>
-                  <h4 className="font-serif text-lg font-medium mb-4 text-gokulam-burgundy">Connect:</h4>
-                  <div className="flex flex-wrap gap-3">
-                    {selectedMember.links.map((link, index) => (
-                      <a 
-                        key={index}
-                        href={link.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="px-4 py-2 bg-gokulam-light border border-gokulam-gold/30 text-gokulam-dark rounded-full hover:bg-gokulam-gold/10 transition-colors inline-flex items-center"
-                      >
-                        {link.label} <ExternalLink size={14} className="ml-2" />
-                      </a>
-                    ))}
-                  </div>
+            <X size={20} />
+          </button>
+          
+          {selectedMember && (
+            <>
+              <div className="relative">
+                <AspectImage 
+                  src={selectedMember.image} 
+                  alt={selectedMember.name} 
+                  aspectRatio={16/9}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                <div className="absolute bottom-0 left-0 p-8 text-white">
+                  <h3 className="font-serif text-3xl font-bold mb-1">{selectedMember.name}</h3>
+                  <p className="text-white/90">{selectedMember.title}</p>
                 </div>
-              )}
-            </div>
-          </div>
-        </div>
-      )}
+              </div>
+              
+              <div className="p-8">
+                <p className="text-lg leading-relaxed mb-8 text-gokulam-dark/90">{selectedMember.bio}</p>
+                
+                {selectedMember.links.length > 0 && (
+                  <div>
+                    <h4 className="font-serif text-lg font-medium mb-4 text-gokulam-burgundy">Connect:</h4>
+                    <div className="flex flex-wrap gap-3">
+                      {selectedMember.links.map((link, index) => (
+                        <a 
+                          key={index}
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="px-4 py-2 bg-gokulam-light border border-gokulam-gold/30 text-gokulam-dark rounded-full hover:bg-gokulam-gold/10 transition-colors inline-flex items-center"
+                        >
+                          {link.label} <ExternalLink size={14} className="ml-2" />
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };
