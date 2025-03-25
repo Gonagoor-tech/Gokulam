@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { 
   Music, Award, Headphones, Calendar, 
-  MusicNote, ExternalLink, ChevronDown, ChevronUp 
+  Music2, ExternalLink, ChevronDown, ChevronUp 
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -278,7 +278,7 @@ const Founder = () => {
               <Card className="bg-white border-amber-200 hover:shadow-lg transition-shadow">
                 <CardContent className="pt-6">
                   <div className="text-amber-500 mb-4">
-                    <MusicNote className="inline-block w-8 h-8" />
+                    <Music2 className="inline-block w-8 h-8" />
                   </div>
                   <blockquote className="text-slate-700 italic mb-6">
                     "Venugopal's flute recitals transcend mere musical performances; 
@@ -296,7 +296,7 @@ const Founder = () => {
               <Card className="bg-white border-amber-200 hover:shadow-lg transition-shadow">
                 <CardContent className="pt-6">
                   <div className="text-amber-500 mb-4">
-                    <MusicNote className="inline-block w-8 h-8" />
+                    <Music2 className="inline-block w-8 h-8" />
                   </div>
                   <blockquote className="text-slate-700 italic mb-6">
                     "The technical brilliance and emotional depth of Venugopal's flute playing 
@@ -314,7 +314,7 @@ const Founder = () => {
               <Card className="bg-white border-amber-200 hover:shadow-lg transition-shadow">
                 <CardContent className="pt-6">
                   <div className="text-amber-500 mb-4">
-                    <MusicNote className="inline-block w-8 h-8" />
+                    <Music2 className="inline-block w-8 h-8" />
                   </div>
                   <blockquote className="text-slate-700 italic mb-6">
                     "As a guru, Venugopal Sir embodies patience, perfection, and profound knowledge. 
