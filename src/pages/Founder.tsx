@@ -1,10 +1,9 @@
-
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { 
   Music, Award, Headphones, Calendar, 
-  Music2, ExternalLink, ChevronDown, ChevronUp 
+  Music2, ChevronDown, ChevronUp, ExternalLink 
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -405,21 +404,6 @@ const Founder = () => {
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
-        
-        {/* Footer link to faculty page */}
-        <section className="py-12 bg-amber-50">
-          <div className="container px-4 mx-auto">
-            <div className="max-w-4xl mx-auto text-center">
-              <a 
-                href="/faculty" 
-                className="inline-flex items-center text-amber-700 hover:text-amber-900 transition-colors"
-              >
-                <span className="mr-2">View All Faculty</span>
-                <ExternalLink size={16} />
-              </a>
             </div>
           </div>
         </section>
