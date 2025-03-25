@@ -1,7 +1,8 @@
 
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import AspectImage from './ui/AspectImage';
-import { ChevronDown, ChevronUp, Music } from 'lucide-react';
+import { ChevronDown, ChevronUp, Music, ArrowRight } from 'lucide-react';
 
 const AboutFounder = () => {
   const [expandedBio, setExpandedBio] = useState(false);
@@ -76,16 +77,25 @@ const AboutFounder = () => {
               )}
             </div>
             
-            <button 
-              onClick={() => setExpandedBio(!expandedBio)}
-              className="mt-6 flex items-center text-gokulam-burgundy hover:text-gokulam-gold transition-colors duration-300 font-medium"
-            >
-              {expandedBio ? (
-                <>Read Less <ChevronUp className="ml-1 w-4 h-4" /></>
-              ) : (
-                <>Read More <ChevronDown className="ml-1 w-4 h-4" /></>
-              )}
-            </button>
+            <div className="mt-6 flex items-center justify-between">
+              <button 
+                onClick={() => setExpandedBio(!expandedBio)}
+                className="flex items-center text-gokulam-burgundy hover:text-gokulam-gold transition-colors duration-300 font-medium"
+              >
+                {expandedBio ? (
+                  <>Read Less <ChevronUp className="ml-1 w-4 h-4" /></>
+                ) : (
+                  <>Read More <ChevronDown className="ml-1 w-4 h-4" /></>
+                )}
+              </button>
+              
+              <Link 
+                to="/founder" 
+                className="flex items-center text-gokulam-gold hover:text-gokulam-burgundy transition-colors duration-300 font-medium"
+              >
+                Full Biography <ArrowRight className="ml-1 w-4 h-4" />
+              </Link>
+            </div>
           </div>
         </div>
         
@@ -93,11 +103,13 @@ const AboutFounder = () => {
           <div className="relative">
             <div className="absolute -top-4 -right-4 w-full h-full border-2 border-gokulam-gold/30 rounded-2xl"></div>
             <div className="rounded-2xl overflow-hidden shadow-2xl transform transition-all duration-500 hover:scale-[1.02] relative z-10 bg-white">
-              <AspectImage 
-                src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" 
-                alt="Vidwan H.S. Venugopal" 
-                aspectRatio={3/4}
-              />
+              <Link to="/founder">
+                <AspectImage 
+                  src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" 
+                  alt="Vidwan H.S. Venugopal" 
+                  aspectRatio={3/4}
+                />
+              </Link>
             </div>
             <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-gokulam-burgundy/10 rounded-full"></div>
           </div>
