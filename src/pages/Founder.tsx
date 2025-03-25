@@ -409,31 +409,17 @@ const Founder = () => {
           </div>
         </section>
         
-        {/* Call to Action */}
-        <section className="py-16 bg-amber-50">
+        {/* Footer link to faculty page */}
+        <section className="py-12 bg-amber-50">
           <div className="container px-4 mx-auto">
-            <div className="max-w-4xl mx-auto text-center bg-white rounded-xl shadow-xl p-10 border border-amber-200">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-800 mb-4">
-                Learn from the Master
-              </h2>
-              <p className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">
-                Embark on your musical journey with guidance from Vidwan H.S. Venugopal and join the 
-                community of talented musicians at Gokulam School of Music
-              </p>
-              <div className="flex flex-wrap justify-center gap-4">
-                <a 
-                  href="#contact" 
-                  className="bg-amber-600 hover:bg-amber-700 text-white px-6 py-3 rounded-md transition-colors"
-                >
-                  Enroll Now
-                </a>
-                <a 
-                  href="/faculty" 
-                  className="bg-white border border-amber-600 text-amber-700 hover:bg-amber-50 px-6 py-3 rounded-md transition-colors"
-                >
-                  Meet All Faculty
-                </a>
-              </div>
+            <div className="max-w-4xl mx-auto text-center">
+              <a 
+                href="/faculty" 
+                className="inline-flex items-center text-amber-700 hover:text-amber-900 transition-colors"
+              >
+                <span className="mr-2">View All Faculty</span>
+                <ExternalLink size={16} />
+              </a>
             </div>
           </div>
         </section>
