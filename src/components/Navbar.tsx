@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { Menu, X, Music } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
@@ -38,8 +38,12 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
         <Link to="/" className="flex items-center space-x-3 group">
-          <div className="w-12 h-12 rounded-full bg-gradient-to-br from-gokulam-gold to-gokulam-burgundy flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 transform group-hover:scale-105">
-            <Music className="text-white w-6 h-6" />
+          <div className="h-12 w-12 rounded-full overflow-hidden shadow-lg group-hover:shadow-xl transition-all duration-300 transform group-hover:scale-105 flex items-center justify-center bg-black">
+            <img 
+              src="/lovable-uploads/1ed61e84-fa6f-44b7-a870-e0bccad1b41f.png" 
+              alt="Gokulam School of Music Logo" 
+              className="h-10 w-10 object-contain"
+            />
           </div>
           <div>
             <span className="font-serif font-bold text-2xl text-gokulam-burgundy block leading-none">Gokulam</span>
