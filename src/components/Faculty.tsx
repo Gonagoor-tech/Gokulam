@@ -24,7 +24,7 @@ const facultyMembers: FacultyMember[] = [
     id: 1,
     name: "Vidwan H.S. Venugopal",
     title: "Founder & Principal",
-    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
+    image: "/lovable-uploads/0e796ae4-8fe7-489b-b4bd-86141909a510.png",
     bio: "A towering figure in the world of Carnatic music with a career spanning almost five decades. Distinguished as both a soloist and an accompanying artist, revered for his profound artistry and enduring contributions.",
     links: [
       { label: "Instagram", url: "https://www.instagram.com/venugopalhemmige" },
@@ -34,7 +34,7 @@ const facultyMembers: FacultyMember[] = [
     id: 2,
     name: "Varijashree Venugopal",
     title: "Faculty & Performer",
-    image: "https://images.unsplash.com/photo-1470813740244-df37b8c1edcb",
+    image: "/lovable-uploads/fa45a359-485a-4cc9-8f08-3dd2968a20ce.png",
     bio: "An accomplished musician following in her father's footsteps, Varijashree has carved her own niche in the world of Carnatic music with her exceptional talent and innovative approach.",
     links: [
       { label: "Website", url: "https://www.varijashree.com" },
