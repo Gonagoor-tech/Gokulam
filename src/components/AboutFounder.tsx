@@ -105,7 +105,7 @@ const AboutFounder = () => {
             <div className="rounded-2xl overflow-hidden shadow-2xl transform transition-all duration-500 hover:scale-[1.02] relative z-10 bg-white">
               <Link to="/founder">
                 <AspectImage 
-                  src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" 
+                  src="/lovable-uploads/1dcbffd1-ec55-4eb2-9311-4857ff5b75fa.png" 
                   alt="Vidwan H.S. Venugopal" 
                   aspectRatio={3/4}
                 />
