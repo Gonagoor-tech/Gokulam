@@ -1,4 +1,6 @@
 
+import { motion } from "framer-motion";
+
 type TimelineEventProps = {
   year: string;
   title: string;
@@ -8,7 +10,13 @@ type TimelineEventProps = {
 
 const TimelineEvent = ({ year, title, description, isLeft }: TimelineEventProps) => {
   return (
-    <div className="timeline-item mb-12">
+    <motion.div 
+      className="timeline-item mb-12"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.6, delay: isLeft ? 0 : 0.2 }}
+    >
       <div className="flex flex-col md:flex-row items-center">
         {isLeft ? (
           <>
@@ -36,7 +44,7 @@ const TimelineEvent = ({ year, title, description, isLeft }: TimelineEventProps)
           </>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

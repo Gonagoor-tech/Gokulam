@@ -1,5 +1,6 @@
 
 import { Headphones, Calendar } from "lucide-react";
+import AspectImage from "../ui/AspectImage";
 
 const HeroSection = () => {
   return (
@@ -45,7 +46,7 @@ const HeroSection = () => {
                 <div className="absolute -top-4 -right-4 w-full h-full border-2 border-amber-500/30 rounded-2xl"></div>
                 <div className="rounded-2xl overflow-hidden shadow-2xl aspect-[3/4] bg-white">
                   <img 
-                    src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" 
+                    src="/lovable-uploads/1dcbffd1-ec55-4eb2-9311-4857ff5b75fa.png" 
                     alt="Vidwan H.S. Venugopal" 
                     className="w-full h-full object-cover"
                   />
