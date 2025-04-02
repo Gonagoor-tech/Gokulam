@@ -18,7 +18,7 @@ const TimelineSection = () => {
     {
       year: "1998",
       title: "'Sunada Vinoda' Title",
-      description: "Conferred with the prestigious title of 'Sunada Vinoda' by Sri Shirdi Sai Baba Mandir",
+      description: "Conferred with the prestigious title of 'Sunada Vinoda' by Sri Shirdi Sai Baba Mandir, Ulsoor",
       isLeft: true
     },
     {
@@ -28,10 +28,28 @@ const TimelineSection = () => {
       isLeft: false
     },
     {
+      year: "2010",
+      title: "'Karnataka Kalashree'",
+      description: "Honored with the 'Karnataka Kalashree' award by Sangeetha Nrithya Academy of Government of Karnataka",
+      isLeft: true
+    },
+    {
       year: "2015",
       title: "'Venu Brahma' Award",
       description: "Received the 'Venu Brahma' award by Shri Naadabrahma Sangeetha Sabha in recognition of his contributions to flute music",
+      isLeft: false
+    },
+    {
+      year: "2018",
+      title: "Kempegowda Award",
+      description: "Honored with the prestigious Kempegowda Award by the Bruhat Bengaluru Mahanagara Palike (BBMP)",
       isLeft: true
+    },
+    {
+      year: "2020",
+      title: "'Ananya Puraskaar'",
+      description: "Received the 'Ananya Puraskaar' Lifetime Achievement Award by Ananya Bengaluru",
+      isLeft: false
     }
   ];
 

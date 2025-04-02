@@ -1,9 +1,10 @@
 
 import { useState } from "react";
-import { ChevronDown, ChevronUp } from "lucide-react";
+import { ChevronDown, ChevronUp, Award } from "lucide-react";
 
 const BiographySection = () => {
   const [expandedBio, setExpandedBio] = useState(false);
+  const [showingAwards, setShowingAwards] = useState(false);
   
   return (
     <section className="py-16 bg-white">
@@ -55,12 +56,6 @@ const BiographySection = () => {
               </p>
               
               <p className="mb-4">
-                Over the years, Vidwan Venugopal has been the recipient of numerous accolades, 
-                including the 'Hamsa Puraskar' by Hamsa Jyothi, the title of 'Sunada Vinoda' 
-                by Sri Shirdi Sai Baba Mandir, and 'Venu Brahma' by Shri Naadabrahma Sangeetha Sabha.
-              </p>
-              
-              <p className="mb-4">
                 Beyond his artistic pursuits, Vidwan Venugopal's legacy extends into education 
                 through the establishment of the Gokulam School of Music in Bangalore. For 
                 over four decades, this institution has nurtured countless students, many of 
@@ -69,16 +64,78 @@ const BiographySection = () => {
             </div>
           </div>
           
-          <button 
-            onClick={() => setExpandedBio(!expandedBio)}
-            className="mt-6 flex items-center mx-auto text-amber-700 hover:text-amber-900 transition-colors duration-300 font-medium"
-          >
-            {expandedBio ? (
-              <>Read Less <ChevronUp className="ml-1 w-4 h-4" /></>
-            ) : (
-              <>Read More <ChevronDown className="ml-1 w-4 h-4" /></>
-            )}
-          </button>
+          <div className="flex flex-col sm:flex-row justify-center gap-4 mt-6">
+            <button 
+              onClick={() => setExpandedBio(!expandedBio)}
+              className="flex items-center justify-center text-amber-700 hover:text-amber-900 transition-colors duration-300 font-medium"
+            >
+              {expandedBio ? (
+                <>Read Less <ChevronUp className="ml-1 w-4 h-4" /></>
+              ) : (
+                <>Read More <ChevronDown className="ml-1 w-4 h-4" /></>
+              )}
+            </button>
+            
+            <button 
+              onClick={() => setShowingAwards(!showingAwards)}
+              className="flex items-center justify-center text-amber-700 hover:text-amber-900 transition-colors duration-300 font-medium"
+            >
+              <Award className="mr-1 w-4 h-4" /> {showingAwards ? "Hide Awards" : "View Awards & Recognitions"}
+            </button>
+          </div>
+          
+          {/* Awards Section */}
+          <div className={`mt-8 ${showingAwards ? 'block' : 'hidden'}`}>
+            <h3 className="text-2xl font-serif font-bold text-slate-800 mb-4 text-center">
+              Awards & Recognitions
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+              <div className="bg-amber-50 p-4 rounded-lg border border-amber-100 shadow-sm hover:shadow-md transition-shadow">
+                <h4 className="font-bold text-amber-800">Kempegowda Award</h4>
+                <p className="text-sm text-slate-700">Prestigious award by Bruhat Bengaluru Mahanagara Palike (BBMP)</p>
+              </div>
+              
+              <div className="bg-amber-50 p-4 rounded-lg border border-amber-100 shadow-sm hover:shadow-md transition-shadow">
+                <h4 className="font-bold text-amber-800">Karnataka Kalashree</h4>
+                <p className="text-sm text-slate-700">By Sangeetha Nrithya Academy of Government of Karnataka</p>
+              </div>
+              
+              <div className="bg-amber-50 p-4 rounded-lg border border-amber-100 shadow-sm hover:shadow-md transition-shadow">
+                <h4 className="font-bold text-amber-800">Ananya Puraskaar</h4>
+                <p className="text-sm text-slate-700">Lifetime Achievement Award by Ananya Bengaluru</p>
+              </div>
+              
+              <div className="bg-amber-50 p-4 rounded-lg border border-amber-100 shadow-sm hover:shadow-md transition-shadow">
+                <h4 className="font-bold text-amber-800">Hamsa Puraskar</h4>
+                <p className="text-sm text-slate-700">By Hamsa Jyothi</p>
+              </div>
+              
+              <div className="bg-amber-50 p-4 rounded-lg border border-amber-100 shadow-sm hover:shadow-md transition-shadow">
+                <h4 className="font-bold text-amber-800">Venu Brahma</h4>
+                <p className="text-sm text-slate-700">By Shri Naadabrahma Sangeetha Sabha along with Shri T R Mahalingam Samsmarana Vedike, Mysuru</p>
+              </div>
+              
+              <div className="bg-amber-50 p-4 rounded-lg border border-amber-100 shadow-sm hover:shadow-md transition-shadow">
+                <h4 className="font-bold text-amber-800">Sunada Vinoda</h4>
+                <p className="text-sm text-slate-700">By Sri Shirdi Sai Baba Mandir, Ulsoor</p>
+              </div>
+              
+              <div className="bg-amber-50 p-4 rounded-lg border border-amber-100 shadow-sm hover:shadow-md transition-shadow">
+                <h4 className="font-bold text-amber-800">Madhuramrutha Murali Gaana Praveena</h4>
+                <p className="text-sm text-slate-700">By Devi Bhakta Gaana Sabha, Ulsoor</p>
+              </div>
+              
+              <div className="bg-amber-50 p-4 rounded-lg border border-amber-100 shadow-sm hover:shadow-md transition-shadow">
+                <h4 className="font-bold text-amber-800">Kaladeepti</h4>
+                <p className="text-sm text-slate-700">By Thyagaraja Gana Sabha, Mysore</p>
+              </div>
+              
+              <div className="bg-amber-50 p-4 rounded-lg border border-amber-100 shadow-sm hover:shadow-md transition-shadow">
+                <h4 className="font-bold text-amber-800">Naada Nrutya Kolalu Kovida</h4>
+                <p className="text-sm text-slate-700">By Sadhana Sangama</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

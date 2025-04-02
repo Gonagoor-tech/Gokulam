@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import AspectImage from './ui/AspectImage';
-import { ChevronDown, ChevronUp, Music, ArrowRight } from 'lucide-react';
+import { ChevronDown, ChevronUp, Music, ArrowRight, Award } from 'lucide-react';
 
 const AboutFounder = () => {
   const [expandedBio, setExpandedBio] = useState(false);
@@ -69,9 +69,10 @@ const AboutFounder = () => {
                   </p>
                   
                   <p className="mb-4">
-                    Over the years, Vidwan Venugopal has been the recipient of numerous accolades, 
-                    including the 'Hamsa Puraskar' by Hamsa Jyothi, the title of 'Sunada Vinoda' 
-                    by Sri Shirdi Sai Baba Mandir, and 'Venu Brahma' by Shri Naadabrahma Sangeetha Sabha.
+                    Over the years, Vidwan Venugopal has been honored with numerous prestigious accolades, 
+                    including the 'Karnataka Kalashree' by Sangeetha Nrithya Academy of Government of Karnataka, 
+                    the 'Hamsa Puraskar' by Hamsa Jyothi, the title of 'Sunada Vinoda' by Sri Shirdi Sai 
+                    Baba Mandir, the Kempegowda Award by BBMP, and 'Venu Brahma' by Shri Naadabrahma Sangeetha Sabha.
                   </p>
                 </>
               )}
@@ -93,7 +94,7 @@ const AboutFounder = () => {
                 to="/founder" 
                 className="flex items-center text-gokulam-gold hover:text-gokulam-burgundy transition-colors duration-300 font-medium"
               >
-                Full Biography <ArrowRight className="ml-1 w-4 h-4" />
+                <Award className="mr-1 w-4 h-4" /> View Awards & Full Biography <ArrowRight className="ml-1 w-4 h-4" />
               </Link>
             </div>
           </div>
