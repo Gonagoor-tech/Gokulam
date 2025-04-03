@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { ChevronRight, X, ExternalLink } from "lucide-react";
 import { Button } from "./ui/button";
@@ -46,7 +45,7 @@ const facultyMembers: FacultyMember[] = [
     id: 3,
     name: "Vidushi T.V. Rama",
     title: "Senior Faculty",
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
+    image: "/lovable-uploads/67ff0c25-feef-4373-95a1-8bb622ae79aa.png",
     bio: "An esteemed educator and performer, Vidushi T.V. Rama brings decades of experience and expertise to the Gokulam School of Music faculty.",
     links: [
       { label: "Instagram", url: "https://www.instagram.com/ramatv68" }
@@ -56,7 +55,7 @@ const facultyMembers: FacultyMember[] = [
     id: 4,
     name: "Praveen D. Rao",
     title: "Guest Faculty & Composer",
-    image: "https://images.unsplash.com/photo-1466442929976-97f336a657be",
+    image: "/lovable-uploads/a9a38377-2645-49a6-9aaa-b24efc8ab773.png",
     bio: "A versatile musician and composer, Praveen D. Rao has contributed significantly to the field of music through his compositions and performances.",
     links: [
       { label: "Wikipedia", url: "https://en.wikipedia.org/wiki/Praveen_D._Rao" },
