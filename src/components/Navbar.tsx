@@ -38,11 +38,11 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
         <Link to="/" className="flex items-center space-x-3 group">
-          <div className="h-12 w-12 rounded-full overflow-hidden shadow-lg group-hover:shadow-xl transition-all duration-300 transform group-hover:scale-105 flex items-center justify-center bg-black">
+          <div className="h-12 w-12 rounded-full overflow-hidden shadow-lg group-hover:shadow-xl transition-all duration-300 transform group-hover:scale-105 flex items-center justify-center bg-[#f8e8c4]">
             <img 
-              src="/lovable-uploads/1ed61e84-fa6f-44b7-a870-e0bccad1b41f.png" 
+              src="/lovable-uploads/a48e48b9-049f-459d-ba69-b85fbbdd273e.png" 
               alt="Gokulam School of Music Logo" 
-              className="h-10 w-10 object-contain"
+              className="h-full w-full object-contain"
             />
           </div>
           <div>
