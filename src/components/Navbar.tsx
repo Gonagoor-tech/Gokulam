@@ -24,7 +24,8 @@ const Navbar = () => {
     { name: 'About', href: '/#about' },
     { name: 'Faculty', href: '/#faculty' },
     { name: 'Kalaarnava', href: '/#kalaarnava' },
-    { name: 'Media', href: '/#media' },
+    { name: 'Youtube', href: '/youtube' },
+    { name: 'Blog', href: '/blog' },
     { name: 'Contact', href: '/#contact' }
   ];
   
@@ -40,7 +41,7 @@ const Navbar = () => {
         <Link to="/" className="flex items-center space-x-3 group">
           <div className="h-12 w-12 rounded-full overflow-hidden shadow-lg group-hover:shadow-xl transition-all duration-300 transform group-hover:scale-105 flex items-center justify-center bg-[#f8e8c4]">
             <img 
-              src="/lovable-uploads/a48e48b9-049f-459d-ba69-b85fbbdd273e.png" 
+              src="/lovable-uploads/28d9267d-1de4-4e18-aab7-1bcbbf10f3f5.png" 
               alt="Gokulam School of Music Logo" 
               className="h-full w-full object-contain"
             />
