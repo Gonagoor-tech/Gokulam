@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -22,7 +21,6 @@ const Navbar = () => {
     { name: 'Home', href: '/' },
     { name: 'Founder', href: '/founder' },
     { name: 'About', href: '/#about' },
-    { name: 'Faculty', href: '/#faculty' },
     { name: 'Kalaarnava', href: '/#kalaarnava' },
     { name: 'Youtube', href: '/youtube' },
     { name: 'Blog', href: '/blog' },
