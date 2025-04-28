@@ -1,9 +1,9 @@
+
 import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import AboutFounder from "@/components/AboutFounder";
 import Faculty from "@/components/Faculty";
-import Kalaarnava from "@/components/Kalaarnava";
 import VideoSection from "@/components/VideoSection";
 import Footer from "@/components/Footer";
 
@@ -35,9 +35,13 @@ const Index = () => {
       <Navbar />
       <HeroSection />
       <AboutFounder />
-      <Faculty />
+      <div id="educators">
+        <Faculty />
+      </div>
       <VideoSection />
-      <Footer />
+      <div id="contact">
+        <Footer />
+      </div>
     </div>
   );
 };

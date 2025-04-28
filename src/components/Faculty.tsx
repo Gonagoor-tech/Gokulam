@@ -1,14 +1,13 @@
-
 import { useState } from "react";
 import { ChevronRight, X, ExternalLink } from "lucide-react";
 import { Button } from "./ui/button";
 import {
-  Sheet,
-  SheetContent,
-  SheetClose,
-  SheetHeader,
-  SheetTitle,
-} from "./ui/sheet";
+  Dialog,
+  DialogContent,
+  DialogClose,
+  DialogHeader,
+  DialogTitle,
+} from "./ui/dialog";
 import AspectImage from "./ui/AspectImage";
 
 interface FacultyMember {
@@ -78,10 +77,10 @@ const Faculty = () => {
   };
   
   return (
-    <section id="faculty" className="py-24 bg-gradient-to-b from-slate-50 to-slate-100">
+    <section className="py-24 bg-gradient-to-b from-slate-50 to-slate-100">
       <div className="container px-4 mx-auto">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-4xl font-bold text-slate-800 mb-4 font-serif">Our Distinguished Faculty</h2>
+          <h2 className="text-4xl font-bold text-slate-800 mb-4 font-serif">Our Educators</h2>
           <div className="w-24 h-1 bg-amber-500 mx-auto mb-6"></div>
           <p className="text-lg text-slate-600">
             Learn from masters who bring decades of experience and deep knowledge of Carnatic traditions
@@ -95,26 +94,21 @@ const Faculty = () => {
               className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 elegant-shadow"
             >
               <div className="relative h-64 overflow-hidden">
-                {/* Artistic overlay and decorative elements */}
                 <div className="absolute inset-0 bg-gokulam-burgundy/10 mix-blend-multiply z-10"></div>
                 <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-amber-600/20 to-transparent z-10"></div>
                 <div className="absolute -top-12 -right-12 w-24 h-24 bg-amber-500/10 rounded-full z-10"></div>
                 <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-gokulam-burgundy/10 rounded-full z-10"></div>
                 
-                {/* Faculty image with enhanced styling */}
                 <img 
                   src={member.image} 
                   alt={member.name} 
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 saturate-[1.1] contrast-[1.05]"
                 />
                 
-                {/* Gradient overlay for text legibility */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-20"></div>
                 
-                {/* Decorative element */}
                 <div className="absolute top-4 right-4 w-12 h-12 border-2 border-amber-200/40 rounded-full z-20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 
-                {/* Faculty name and title */}
                 <div className="absolute bottom-0 left-0 p-5 text-white z-30">
                   <h3 className="text-xl font-bold drop-shadow-md">{member.name}</h3>
                   <p className="text-white/90 text-sm drop-shadow-md">{member.title}</p>
@@ -122,9 +116,7 @@ const Faculty = () => {
               </div>
               
               <div className="p-5 relative">
-                {/* Decorative accent */}
                 <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-1 bg-amber-500/60 rounded-full"></div>
-                
                 <p className="text-slate-600 mb-4 line-clamp-3">{member.bio}</p>
                 <Button 
                   onClick={() => openBio(member.id)}
@@ -135,15 +127,13 @@ const Faculty = () => {
                 </Button>
               </div>
               
-              {/* Sheet for displaying full bio */}
-              <Sheet open={openMemberId === member.id} onOpenChange={(open) => !open && closeBio()}>
-                <SheetContent className="w-[90vw] sm:max-w-md border-l-amber-200 bg-slate-50 p-0">
-                  <SheetClose className="absolute right-4 top-4 p-1 rounded-full bg-white shadow-md hover:bg-amber-50 z-50">
+              <Dialog open={openMemberId === member.id} onOpenChange={(open) => !open && closeBio()}>
+                <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+                  <DialogClose className="absolute right-4 top-4 p-1 rounded-full bg-white shadow-md hover:bg-amber-50">
                     <X className="h-5 w-5 text-slate-700" />
-                  </SheetClose>
+                  </DialogClose>
                   
-                  <div className="h-72 relative overflow-hidden">
-                    {/* Enhanced image display in the sheet */}
+                  <div className="h-72 relative overflow-hidden rounded-t-lg">
                     <div className="absolute inset-0 bg-gradient-to-r from-amber-600/20 to-transparent mix-blend-multiply z-10"></div>
                     <img 
                       src={member.image} 
@@ -152,17 +142,13 @@ const Faculty = () => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-20"></div>
                     
-                    {/* Decorative elements */}
-                    <div className="absolute top-4 left-4 w-20 h-20 border border-white/20 rounded-full z-30"></div>
-                    <div className="absolute bottom-0 right-0 w-40 h-40 bg-amber-500/10 rounded-full z-10"></div>
+                    <div className="absolute bottom-6 left-6 z-30">
+                      <h2 className="text-2xl font-bold text-white mb-2">{member.name}</h2>
+                      <p className="text-amber-200">{member.title}</p>
+                    </div>
                   </div>
                   
-                  <SheetHeader className="p-6 text-left">
-                    <SheetTitle className="text-2xl font-serif text-slate-800">{member.name}</SheetTitle>
-                    <p className="text-amber-700">{member.title}</p>
-                  </SheetHeader>
-                  
-                  <div className="px-6 pb-6">
+                  <div className="p-6">
                     <p className="text-slate-700 mb-8 leading-relaxed">{member.bio}</p>
                     
                     {member.links.length > 0 && (
@@ -184,8 +170,8 @@ const Faculty = () => {
                       </div>
                     )}
                   </div>
-                </SheetContent>
-              </Sheet>
+                </DialogContent>
+              </Dialog>
             </div>
           ))}
         </div>
