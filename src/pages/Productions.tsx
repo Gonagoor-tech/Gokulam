@@ -3,18 +3,8 @@ import { Helmet } from 'react-helmet-async';
 import Navbar from '@/components/Navbar';
 import { Card } from '@/components/ui/card';
 import { Album } from 'lucide-react';
-import AspectImage from '@/components/ui/AspectImage';
 
 const Productions = () => {
-  // Random background images from Unsplash
-  const backgroundImages = [
-    'https://images.unsplash.com/photo-1500375592092-40eb2168fd21',
-    'https://images.unsplash.com/photo-1482938289607-e9573fc25ebb',
-    'https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9',
-    'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07',
-    'https://images.unsplash.com/photo-1523712999610-f77fbcfc3843',
-  ];
-
   const albums = [
     {
       title: "VENU",
@@ -63,21 +53,23 @@ const Productions = () => {
       </Helmet>
       <Navbar />
       <div className="container mx-auto px-4 py-24">
-        <h1 className="text-4xl font-serif text-gokulam-burgundy text-center mb-12">Our Productions</h1>
+        <div className="flex flex-col items-center mb-12">
+          <div className="w-32 h-32 mb-6 flex items-center justify-center bg-white rounded-full shadow-md p-4">
+            <img 
+              src="/lovable-uploads/a9a38377-2645-49a6-9aaa-b24efc8ab773.png" 
+              alt="Gokulam Music Logo" 
+              className="max-w-full max-h-full"
+            />
+          </div>
+          <h1 className="text-4xl font-serif text-gokulam-burgundy text-center">Our Productions</h1>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {albums.map((album, index) => (
             <Card 
               key={index} 
-              className="group relative overflow-hidden hover:shadow-lg transition-all duration-300"
+              className="group hover:shadow-lg transition-all duration-300 border border-gokulam-burgundy/10"
             >
-              <div className="absolute inset-0 z-0">
-                <AspectImage
-                  src={backgroundImages[index % backgroundImages.length]}
-                  alt={album.title}
-                  className="opacity-20 group-hover:opacity-30 transition-opacity duration-300"
-                />
-              </div>
-              <div className="relative z-10 p-6">
+              <div className="p-6">
                 <div className="flex items-start space-x-4">
                   <div className="bg-gokulam-burgundy/90 p-3 rounded-full">
                     <Album className="w-6 h-6 text-white" />

@@ -6,6 +6,9 @@ import AboutFounder from "@/components/AboutFounder";
 import Faculty from "@/components/Faculty";
 import VideoSection from "@/components/VideoSection";
 import Footer from "@/components/Footer";
+import { Button } from "@/components/ui/button";
+import { youtube, arrow-right } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Index = () => {
   useEffect(() => {
@@ -39,6 +42,27 @@ const Index = () => {
         <Faculty />
       </div>
       <VideoSection />
+      <div className="bg-gokulam-light py-12 text-center">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-serif text-gokulam-burgundy mb-6">Watch More Performances</h2>
+          <p className="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
+            Explore our collection of performances, interviews, and educational content
+          </p>
+          <Link to="/youtube" className="inline-flex items-center gap-2 px-6 py-3 bg-gokulam-burgundy text-white rounded-md hover:bg-gokulam-burgundy/90 transition-all duration-300 shadow-lg hover:shadow-xl">
+            <span className="rounded-full bg-white/20 p-1">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-youtube">
+                <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17" />
+                <path d="m10 15 5-3-5-3z" />
+              </svg>
+            </span>
+            <span>Visit YouTube Gallery</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-right">
+              <path d="M5 12h14" />
+              <path d="m12 5 7 7-7 7" />
+            </svg>
+          </Link>
+        </div>
+      </div>
       <div id="contact">
         <Footer />
       </div>

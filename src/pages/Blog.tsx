@@ -2,7 +2,9 @@
 import { Helmet } from 'react-helmet-async';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { FileText } from 'lucide-react';
+import { FileText, Download } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { toast } from '@/hooks/use-toast';
 
 const BlogPage = () => {
   const blogs = [
@@ -58,6 +60,34 @@ const BlogPage = () => {
     }
   ];
 
+  const handleDownloadBlogList = () => {
+    // Create content with blog titles and URLs
+    let content = "Gokulam School of Music - Blog List\n\n";
+    blogs.forEach((blog, index) => {
+      content += `${index + 1}. ${blog.title}\n   ${blog.url}\n\n`;
+    });
+    
+    // Create a blob with the content
+    const blob = new Blob([content], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    
+    // Create a temporary anchor element to trigger the download
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'gokulam-blog-list.txt';
+    document.body.appendChild(a);
+    a.click();
+    
+    // Clean up
+    URL.revokeObjectURL(url);
+    document.body.removeChild(a);
+    
+    toast({
+      title: "Blog list downloaded",
+      description: "The list of blog links has been downloaded successfully.",
+    });
+  };
+
   return (
     <div className="min-h-screen bg-gokulam-light">
       <Helmet>
@@ -71,9 +101,16 @@ const BlogPage = () => {
             Our Blog
           </span>
           <h1 className="section-title">Articles & Insights</h1>
-          <p className="text-xl text-gokulam-dark/80">
+          <p className="text-xl text-gokulam-dark/80 mb-8">
             Explore our collection of articles about music, culture, and spirituality
           </p>
+          <Button 
+            onClick={handleDownloadBlogList}
+            className="bg-gokulam-burgundy hover:bg-gokulam-dark text-white flex items-center gap-2"
+          >
+            <Download size={16} />
+            Download Blog List
+          </Button>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
