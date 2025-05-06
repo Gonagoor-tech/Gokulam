@@ -12,12 +12,8 @@ const VideoSection = () => {
     title: "Bengaluru Ganesha Utsava - Featured Performance"
   });
   
-  const featuredVideos: VideoProps[] = [
-    {
-      videoId: "1NuitfE6FF0",
-      title: "Bengaluru Ganesha Utsava - Special Feature"
-    }
-  ];
+  // Empty featured videos array
+  const featuredVideos: VideoProps[] = [];
   
   useEffect(() => {
     // In a real implementation, this would fetch the latest videos from the YouTube API
@@ -49,32 +45,6 @@ const VideoSection = () => {
           </div>
         </div>
         <h3 className="font-serif text-xl font-medium mt-4 text-center">{latestVideo.title}</h3>
-      </div>
-      
-      <div className="text-center mb-10">
-        <h3 className="font-serif text-2xl font-medium mb-3">Featured Collaborations</h3>
-        <p className="text-gokulam-dark/80 max-w-2xl mx-auto">
-          Explore our special performances and collaborations with renowned artists and festivals
-        </p>
-      </div>
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {featuredVideos.map((video, index) => (
-          <div key={index} className="glass-card rounded-xl overflow-hidden">
-            <div className="aspect-w-16 aspect-h-9">
-              <iframe 
-                src={`https://www.youtube.com/embed/${video.videoId}`}
-                title={video.title}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="w-full h-full"
-              ></iframe>
-            </div>
-            <div className="p-4">
-              <h4 className="font-serif text-lg font-medium">{video.title}</h4>
-            </div>
-          </div>
-        ))}
       </div>
       
       <div className="text-center mt-12">

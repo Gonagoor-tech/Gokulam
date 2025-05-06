@@ -1,3 +1,4 @@
+
 import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
@@ -41,21 +42,6 @@ const Index = () => {
         <Faculty />
       </div>
       <VideoSection />
-      <div className="bg-gokulam-light py-12 text-center">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-serif text-gokulam-burgundy mb-6">Watch More Performances</h2>
-          <p className="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
-            Explore our collection of performances, interviews, and educational content
-          </p>
-          <Link to="/youtube" className="inline-flex items-center gap-2 px-6 py-3 bg-gokulam-burgundy text-white rounded-md hover:bg-gokulam-burgundy/90 transition-all duration-300 shadow-lg hover:shadow-xl">
-            <span className="rounded-full bg-white/20 p-1">
-              <Youtube size={20} />
-            </span>
-            <span>Visit YouTube Gallery</span>
-            <ArrowRight size={20} />
-          </Link>
-        </div>
-      </div>
       <div id="contact">
         <Footer />
       </div>
