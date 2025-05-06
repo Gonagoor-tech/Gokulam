@@ -1,5 +1,12 @@
 
 import { useState, useEffect } from "react";
+import { 
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious
+} from "@/components/ui/carousel";
 
 interface VideoProps {
   videoId: string;
@@ -12,8 +19,25 @@ const VideoSection = () => {
     title: "Bengaluru Ganesha Utsava - Featured Performance"
   });
   
-  // Empty featured videos array
-  const featuredVideos: VideoProps[] = [];
+  // Added actual videos from the Gokulam Sangeetha Shaale YouTube channel
+  const featuredVideos: VideoProps[] = [
+    {
+      videoId: "k_xLC7FaBAU",
+      title: "Dr K. Vishnudev - Ashtapathi at Sri Rama Temple"
+    },
+    {
+      videoId: "WzB-8DQu3uY",
+      title: "Srivatsa Shankar - Flute Recital"
+    },
+    {
+      videoId: "eiaVrBXVPZQ",
+      title: "Carnatic Flute Solo Performance"
+    },
+    {
+      videoId: "BmKsX5y0PPA", 
+      title: "Musical Performance"
+    }
+  ];
   
   useEffect(() => {
     // In a real implementation, this would fetch the latest videos from the YouTube API
@@ -45,6 +69,34 @@ const VideoSection = () => {
           </div>
         </div>
         <h3 className="font-serif text-xl font-medium mt-4 text-center">{latestVideo.title}</h3>
+      </div>
+      
+      {/* Featured Videos Carousel */}
+      <div className="max-w-5xl mx-auto px-4">
+        <h3 className="font-serif text-2xl font-medium text-gokulam-burgundy mb-8 text-center">More Performances</h3>
+        
+        <Carousel className="w-full mb-12">
+          <CarouselContent>
+            {featuredVideos.map((video, index) => (
+              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/2">
+                <div className="glass-card h-full overflow-hidden rounded-xl p-1">
+                  <div className="aspect-video relative">
+                    <iframe
+                      src={`https://www.youtube.com/embed/${video.videoId}`}
+                      title={video.title}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="w-full h-full rounded-lg"
+                    ></iframe>
+                  </div>
+                  <h4 className="font-serif text-lg font-medium mt-3 mb-2 text-center px-2">{video.title}</h4>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="left-0 lg:-left-12" />
+          <CarouselNext className="right-0 lg:-right-12" />
+        </Carousel>
       </div>
       
       <div className="text-center mt-12">
