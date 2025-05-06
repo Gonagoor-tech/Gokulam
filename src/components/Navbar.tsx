@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -20,11 +21,31 @@ const Navbar = () => {
   const navLinks = [
     { name: 'Home', href: '/' },
     { name: 'Founder', href: '/founder' },
-    { name: 'About', href: '/#about' },
     { name: 'Productions', href: '/productions' },
     { name: 'Blog', href: '/blog' },
     { name: 'Contact', href: '/#contact' }
   ];
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith('/#')) {
+      e.preventDefault();
+      const targetId = href.substring(2);
+      const targetElement = document.getElementById(targetId);
+      
+      if (targetElement) {
+        const yOffset = -80; // Account for navbar height
+        const y = targetElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        
+        window.scrollTo({
+          top: y,
+          behavior: 'smooth'
+        });
+        
+        // Close mobile menu after clicking
+        setIsMenuOpen(false);
+      }
+    }
+  };
   
   return (
     <nav 
@@ -52,7 +73,7 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-10">
           {navLinks.map((link) => (
-            link.href.startsWith('/') ? (
+            link.href.startsWith('/') && !link.href.includes('#') ? (
               <Link 
                 key={link.name} 
                 to={link.href} 
@@ -65,6 +86,7 @@ const Navbar = () => {
                 key={link.name} 
                 href={link.href} 
                 className="text-gokulam-dark hover:text-gokulam-burgundy transition-colors duration-300 link-underline font-medium"
+                onClick={(e) => handleNavClick(e, link.href)}
               >
                 {link.name}
               </a>
@@ -93,7 +115,7 @@ const Navbar = () => {
         <div className="container mx-auto px-6 py-6 bg-white/95 backdrop-blur-md shadow-lg rounded-b-2xl">
           <div className="flex flex-col space-y-5">
             {navLinks.map((link) => (
-              link.href.startsWith('/') ? (
+              link.href.startsWith('/') && !link.href.includes('#') ? (
                 <Link 
                   key={link.name} 
                   to={link.href} 
@@ -107,7 +129,10 @@ const Navbar = () => {
                   key={link.name} 
                   href={link.href} 
                   className="text-gokulam-dark hover:text-gokulam-burgundy py-2 border-b border-gokulam-gold/20 transition-colors duration-300 font-medium"
-                  onClick={toggleMenu}
+                  onClick={(e) => {
+                    handleNavClick(e, link.href);
+                    toggleMenu();
+                  }}
                 >
                   {link.name}
                 </a>
