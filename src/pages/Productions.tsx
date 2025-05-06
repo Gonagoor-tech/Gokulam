@@ -54,13 +54,6 @@ const Productions = () => {
       <Navbar />
       <div className="container mx-auto px-4 py-24">
         <div className="flex flex-col items-center mb-12">
-          <div className="w-32 h-32 mb-6 flex items-center justify-center bg-white rounded-full shadow-md p-4">
-            <img 
-              src="/lovable-uploads/a9a38377-2645-49a6-9aaa-b24efc8ab773.png" 
-              alt="Gokulam Music Logo" 
-              className="max-w-full max-h-full"
-            />
-          </div>
           <h1 className="text-4xl font-serif text-gokulam-burgundy text-center">Our Productions</h1>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
