@@ -1,7 +1,16 @@
 
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
+import { cn } from '@/lib/utils';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,9 +27,17 @@ const Navbar = () => {
   
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   
+  // Updated navLinks with dropdown for Founder and Media
   const navLinks = [
     { name: 'Home', href: '/' },
-    { name: 'Founder', href: '/founder' },
+    { 
+      name: 'About',
+      hasDropdown: true,
+      items: [
+        { name: 'Founder', href: '/founder' },
+        { name: 'Gallery', href: '/gallery' }
+      ]
+    },
     { name: 'Productions', href: '/productions' },
     { name: 'Blog', href: '/blog' },
     { name: 'Contact', href: '/#contact' }
@@ -70,28 +87,53 @@ const Navbar = () => {
           </div>
         </Link>
         
-        {/* Desktop Menu */}
-        <div className="hidden md:flex space-x-10">
-          {navLinks.map((link) => (
-            link.href.startsWith('/') && !link.href.includes('#') ? (
-              <Link 
-                key={link.name} 
-                to={link.href} 
-                className="text-gokulam-dark hover:text-gokulam-burgundy transition-colors duration-300 link-underline font-medium"
-              >
-                {link.name}
-              </Link>
-            ) : (
-              <a 
-                key={link.name} 
-                href={link.href} 
-                className="text-gokulam-dark hover:text-gokulam-burgundy transition-colors duration-300 link-underline font-medium"
-                onClick={(e) => handleNavClick(e, link.href)}
-              >
-                {link.name}
-              </a>
-            )
-          ))}
+        {/* Desktop Menu with Dropdown */}
+        <div className="hidden md:block">
+          <NavigationMenu>
+            <NavigationMenuList className="flex items-center gap-8">
+              {navLinks.map((link, index) => (
+                link.hasDropdown ? (
+                  <NavigationMenuItem key={index}>
+                    <NavigationMenuTrigger className="text-gokulam-dark hover:text-gokulam-burgundy bg-transparent hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent">
+                      {link.name}
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <ul className="grid gap-3 p-4 w-[200px]">
+                        {link.items?.map((item, idx) => (
+                          <li key={idx} className="row-span-1">
+                            <Link
+                              to={item.href}
+                              className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                              onClick={() => setIsMenuOpen(false)}
+                            >
+                              <div className="text-sm font-medium leading-none">{item.name}</div>
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+                ) : link.href.startsWith('/') && !link.href.includes('#') ? (
+                  <Link 
+                    key={index} 
+                    to={link.href} 
+                    className="text-gokulam-dark hover:text-gokulam-burgundy transition-colors duration-300 link-underline font-medium"
+                  >
+                    {link.name}
+                  </Link>
+                ) : (
+                  <a 
+                    key={index} 
+                    href={link.href} 
+                    className="text-gokulam-dark hover:text-gokulam-burgundy transition-colors duration-300 link-underline font-medium"
+                    onClick={(e) => handleNavClick(e, link.href)}
+                  >
+                    {link.name}
+                  </a>
+                )
+              ))}
+            </NavigationMenuList>
+          </NavigationMenu>
         </div>
         
         {/* Mobile Menu Button */}
@@ -114,30 +156,48 @@ const Navbar = () => {
       >
         <div className="container mx-auto px-6 py-6 bg-white/95 backdrop-blur-md shadow-lg rounded-b-2xl">
           <div className="flex flex-col space-y-5">
-            {navLinks.map((link) => (
-              link.href.startsWith('/') && !link.href.includes('#') ? (
+            {navLinks.map((link, index) => 
+              link.hasDropdown ? (
+                <div key={index} className="space-y-2">
+                  <div className="font-medium text-gokulam-dark flex items-center">
+                    {link.name} <ChevronDown size={16} className="ml-2" />
+                  </div>
+                  <div className="pl-4 flex flex-col space-y-3">
+                    {link.items?.map((item, idx) => (
+                      <Link 
+                        key={idx} 
+                        to={item.href} 
+                        className="text-gokulam-dark/80 hover:text-gokulam-burgundy py-1 transition-colors duration-300 font-medium"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        {item.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ) : link.href.startsWith('/') && !link.href.includes('#') ? (
                 <Link 
-                  key={link.name} 
+                  key={index} 
                   to={link.href} 
                   className="text-gokulam-dark hover:text-gokulam-burgundy py-2 border-b border-gokulam-gold/20 transition-colors duration-300 font-medium"
-                  onClick={toggleMenu}
+                  onClick={() => setIsMenuOpen(false)}
                 >
                   {link.name}
                 </Link>
               ) : (
                 <a 
-                  key={link.name} 
+                  key={index} 
                   href={link.href} 
                   className="text-gokulam-dark hover:text-gokulam-burgundy py-2 border-b border-gokulam-gold/20 transition-colors duration-300 font-medium"
                   onClick={(e) => {
                     handleNavClick(e, link.href);
-                    toggleMenu();
+                    setIsMenuOpen(false);
                   }}
                 >
                   {link.name}
                 </a>
               )
-            ))}
+            )}
           </div>
         </div>
       </div>

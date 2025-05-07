@@ -10,6 +10,7 @@ import Founder from "./pages/Founder";
 import Youtube from "./pages/Youtube";
 import Blog from "./pages/Blog";
 import Productions from "./pages/Productions";
+import Gallery from "./pages/Gallery";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -27,6 +28,7 @@ const App = () => (
             <Route path="/youtube" element={<Youtube />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/productions" element={<Productions />} />
+            <Route path="/gallery" element={<Gallery />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </TooltipProvider>
