@@ -117,15 +117,10 @@ const AboutFounder = () => {
       </div>
       
       <div className="mt-24 text-center relative z-10">
-        <h2 className="decorated-heading section-title">Our Legacy</h2>
-        <p className="text-xl max-w-3xl mx-auto mb-16 text-gokulam-dark/80">
-          For 40 years, Gokulam School of Music has been a beacon of Carnatic flute education in Bangalore, 
-          nurturing over 150 students and producing accomplished musicians who continue to enrich 
-          the classical music tradition.
-        </p>
-        
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mt-12">
-          <div className="glass-card p-10 rounded-2xl animate-float-shadow">
+
+
+ <div className="glass-card p-10 rounded-2xl animate-float-shadow">
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gokulam-gold/10 mb-6">
               <Music className="text-gokulam-gold w-8 h-8" />
             </div>
@@ -161,6 +156,24 @@ const AboutFounder = () => {
             <p className="text-gokulam-dark/70">Celebrating divine music in honor of Lord Krishna</p>
           </div>
         </div>
+
+ <div className="mt-24 text-center relative z-10 flex flex-wrap justify-center gap-4">
+ <Link to="/founder" className="group">
+ <button className="px-8 py-3 rounded-full text-white bg-gokulam-burgundy hover:bg-gokulam-gold transition-colors duration-300 font-medium flex items-center shadow-lg group-hover:shadow-xl">
+ Discover Our Legacy <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
+ </button>
+ </Link>
+
+ {/* Button to Meet Our Artists section */}
+ <Link to="/#artists" className="group">
+ <button className="px-8 py-3 rounded-full text-gokulam-burgundy border-2 border-gokulam-burgundy hover:text-gokulam-gold hover:border-gokulam-gold transition-colors duration-300 font-medium flex items-center shadow-lg group-hover:shadow-xl">
+ Meet Our Artists
+ </button>
+ </Link>
+
+ </div>
+
+
       </div>
     </section>
   );

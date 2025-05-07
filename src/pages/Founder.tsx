@@ -6,7 +6,6 @@ import HeroSection from "@/components/founder/HeroSection";
 import BiographySection from "@/components/founder/BiographySection";
 import TimelineSection from "@/components/founder/TimelineSection";
 import TestimonialsSection from "@/components/founder/TestimonialsSection";
-import TeachingPhilosophySection from "@/components/founder/TeachingPhilosophySection";
 import { Helmet } from "react-helmet-async";
 
 const Founder = () => {
@@ -24,7 +23,6 @@ const Founder = () => {
         <BiographySection />
         <TimelineSection />
         <TestimonialsSection />
-        <TeachingPhilosophySection />
       </div>
       
       <Footer />

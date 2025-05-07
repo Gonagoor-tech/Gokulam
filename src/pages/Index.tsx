@@ -20,7 +20,7 @@ const Index = () => {
       <HeroSection />
       <AboutUs />
       <AboutFounder />
-      <div id="educators">
+      <div id="artists">
         <Faculty />
       </div>
       <VideoSection />

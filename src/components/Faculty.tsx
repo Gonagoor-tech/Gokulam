@@ -23,7 +23,7 @@ const facultyMembers: FacultyMember[] = [
   {
     id: 1,
     name: "Vidwan H.S. Venugopal",
-    title: "Founder & Principal",
+    title:  "Founder, Director and Principal Educator",
     image: "/lovable-uploads/0e796ae4-8fe7-489b-b4bd-86141909a510.png",
     bio: "A towering figure in the world of Carnatic music with a career spanning almost five decades. Distinguished as both a soloist and an accompanying artist, revered for his profound artistry and enduring contributions.",
     links: [
@@ -33,7 +33,7 @@ const facultyMembers: FacultyMember[] = [
   {
     id: 2,
     name: "Varijashree Venugopal",
-    title: "Faculty & Performer",
+    title: " Grammy Nominated Vocalist, Flutist , Music Composer and Educator",
     image: "/lovable-uploads/fa45a359-485a-4cc9-8f08-3dd2968a20ce.png",
     bio: "An accomplished musician following in her father's footsteps, Varijashree has carved her own niche in the world of Carnatic music with her exceptional talent and innovative approach.",
     links: [
@@ -45,7 +45,7 @@ const facultyMembers: FacultyMember[] = [
   {
     id: 3,
     name: "Vidushi T.V. Rama",
-    title: "Senior Faculty",
+    title: "Accomplished Vocalist and Educator",
     image: "/lovable-uploads/67ff0c25-feef-4373-95a1-8bb622ae79aa.png",
     bio: "An esteemed educator and performer, Vidushi T.V. Rama brings decades of experience and expertise to the Gokulam School of Music faculty.",
     links: [
@@ -55,7 +55,7 @@ const facultyMembers: FacultyMember[] = [
   {
     id: 4,
     name: "Praveen D. Rao",
-    title: "Guest Faculty & Composer",
+    title: "Accomplished Tablaist, Music Composer and Multi Instrument Educator",
     image: "/lovable-uploads/a9a38377-2645-49a6-9aaa-b24efc8ab773.png",
     bio: "A versatile musician and composer, Praveen D. Rao has contributed significantly to the field of music through his compositions and performances.",
     links: [
@@ -79,11 +79,11 @@ const Faculty = () => {
   return (
     <section className="py-24 bg-gradient-to-b from-slate-50 to-slate-100">
       <div className="container px-4 mx-auto">
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-4xl font-bold text-slate-800 mb-4 font-serif">Our Educators</h2>
+        <div className="max-w-4xl mx-auto text-center mb-16">
+          <h2 className="text-4xl font-bold text-slate-800 mb-4 font-serif">Meet our Artists</h2>
           <div className="w-24 h-1 bg-amber-500 mx-auto mb-6"></div>
-          <p className="text-lg text-slate-600">
-            Learn from masters who bring decades of experience and deep knowledge of Carnatic traditions
+          <p className="text-xl text-slate-600">
+            Learn from skilled artists who are passionate about sharing their expertise and nurturing the next generation of performers.
           </p>
         </div>
         
