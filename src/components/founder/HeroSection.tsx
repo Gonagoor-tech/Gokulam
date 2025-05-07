@@ -24,7 +24,7 @@ const HeroSection = () => {
               </p>
               <div className="flex flex-wrap gap-4 mt-8">
                 <a 
-                  href="https://www.youtube.com/watch?v=example" 
+                  href="https://open.spotify.com/artist/5G06dFniw81EaR7vZrs5Cx" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="bg-amber-600 hover:bg-amber-700 text-white px-6 py-3 rounded-md transition-colors flex items-center"

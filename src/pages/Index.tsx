@@ -2,6 +2,7 @@
 import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
+import AboutUs from "@/components/AboutUs";
 import AboutFounder from "@/components/AboutFounder";
 import Faculty from "@/components/Faculty";
 import VideoSection from "@/components/VideoSection";
@@ -17,6 +18,7 @@ const Index = () => {
     <div className="min-h-screen">
       <Navbar />
       <HeroSection />
+      <AboutUs />
       <AboutFounder />
       <div id="educators">
         <Faculty />

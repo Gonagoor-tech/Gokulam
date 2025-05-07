@@ -1,8 +1,7 @@
-
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import AspectImage from './ui/AspectImage';
-import { ChevronDown, ChevronUp, Music, ArrowRight, Award } from 'lucide-react';
+import { ChevronDown, ChevronUp, Music, ArrowRight, Award, Calendar } from 'lucide-react';
 
 const AboutFounder = () => {
   const [expandedBio, setExpandedBio] = useState(false);
@@ -101,9 +100,9 @@ const AboutFounder = () => {
         </div>
         
         <div className="order-1 md:order-2">
-          <div className="relative">
-            <div className="absolute -top-4 -right-4 w-full h-full border-2 border-gokulam-gold/30 rounded-2xl"></div>
-            <div className="rounded-2xl overflow-hidden shadow-2xl transform transition-all duration-500 hover:scale-[1.02] relative z-10 bg-white">
+          <div className="relative max-w-sm mx-auto">
+            <div className="absolute -top-3 -right-3 w-full h-full border-2 border-gokulam-gold/30 rounded-2xl"></div>
+            <div className="rounded-2xl overflow-hidden shadow-xl transform transition-all duration-500 hover:scale-[1.02] relative z-10 bg-white">
               <Link to="/founder">
                 <AspectImage 
                   src="/lovable-uploads/1dcbffd1-ec55-4eb2-9311-4857ff5b75fa.png" 
@@ -112,7 +111,7 @@ const AboutFounder = () => {
                 />
               </Link>
             </div>
-            <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-gokulam-burgundy/10 rounded-full"></div>
+            <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-gokulam-burgundy/10 rounded-full"></div>
           </div>
         </div>
       </div>
@@ -125,7 +124,7 @@ const AboutFounder = () => {
           the classical music tradition.
         </p>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mt-12">
           <div className="glass-card p-10 rounded-2xl animate-float-shadow">
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gokulam-gold/10 mb-6">
               <Music className="text-gokulam-gold w-8 h-8" />
@@ -151,6 +150,15 @@ const AboutFounder = () => {
             <div className="text-5xl font-serif font-bold text-gokulam-burgundy mb-4">15</div>
             <h3 className="text-xl font-serif font-medium mb-3">Kalaarnava Festivals</h3>
             <p className="text-gokulam-dark/70">Celebrating the diversity of Indian classical arts</p>
+          </div>
+          
+          <div className="glass-card p-10 rounded-2xl animate-float-shadow" style={{animationDelay: '0.6s'}}>
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gokulam-gold/10 mb-6">
+              <Calendar className="text-gokulam-gold w-8 h-8" />
+            </div>
+            <div className="text-5xl font-serif font-bold text-gokulam-burgundy mb-4">31+</div>
+            <h3 className="text-xl font-serif font-medium mb-3">Gokulashtami Festivals</h3>
+            <p className="text-gokulam-dark/70">Celebrating divine music in honor of Lord Krishna</p>
           </div>
         </div>
       </div>
