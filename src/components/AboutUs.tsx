@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Music, Headphones, Spotify } from 'lucide-react';
+import { Music, Headphones } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const AboutUs = () => {
@@ -56,7 +56,7 @@ const AboutUs = () => {
               rel="noopener noreferrer"
               className="inline-flex items-center px-6 py-3 bg-gokulam-burgundy text-white rounded-md hover:bg-gokulam-gold transition-all duration-300 mr-4"
             >
-              <Spotify className="mr-2 h-5 w-5" />
+              <Music className="mr-2 h-5 w-5" />
               Listen to Performances
             </a>
           </div>
