@@ -87,10 +87,15 @@ const GalleryPage = () => {
                 aspectRatio={4/3}
                 className="hover:scale-105 transition-transform duration-300"
               />
-              <CardContent className="p-4">
-                <p className="font-serif text-sm md:text-base leading-tight tracking-wide text-gokulam-burgundy font-medium">
-                  {image.description}
-                </p>
+              <CardContent className="p-5 bg-gradient-to-t from-gokulam-burgundy/5 to-transparent">
+                <div className="relative px-2 py-3 border-l-4 border-gokulam-gold">
+                  <p className="font-serif text-sm md:text-base text-gokulam-burgundy leading-snug tracking-wide font-medium line-clamp-3 hover:line-clamp-none transition-all duration-300">
+                    {image.description}
+                  </p>
+                  <div className="absolute top-0 right-0 bg-gokulam-gold/10 text-gokulam-burgundy h-8 w-8 flex items-center justify-center rounded-full font-serif font-bold text-sm">
+                    {`A${index + 1}`}
+                  </div>
+                </div>
               </CardContent>
             </Card>
           ))}
