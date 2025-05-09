@@ -4,11 +4,37 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import AspectImage from '@/components/ui/AspectImage';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Card, CardContent } from "@/components/ui/card";
 import { GalleryHorizontal, Video } from "lucide-react";
 
 const GalleryPage = () => {
-  // Define images for the gallery
+  // Define images for the gallery - including newly uploaded images
   const images = [
+    {
+      src: "/lovable-uploads/f38dae38-94dd-4407-9749-9342c67bca55.png",
+      alt: "Two musicians embracing at an event",
+      description: "Recognition ceremony"
+    },
+    {
+      src: "/lovable-uploads/0a92f052-4930-4c4e-9cb1-141093e411e0.png", 
+      alt: "Classical music ensemble with flutist at center",
+      description: "Traditional music session"
+    },
+    {
+      src: "/lovable-uploads/7c48e79e-f9dd-46b7-bb1d-7f7c0c67de39.png",
+      alt: "Musicians in traditional attire performing",
+      description: "Classical concert performance"
+    },
+    {
+      src: "/lovable-uploads/03fbcb7a-e1f5-4be9-888f-1aef05d806a1.png",
+      alt: "Classical dance performance with musicians",
+      description: "Dance and music collaboration"
+    },
+    {
+      src: "/lovable-uploads/5c04ad6c-5cb5-4ad6-8744-d7e7bb712507.png",
+      alt: "Award ceremony with distinguished guests",
+      description: "Felicitation event"
+    },
     {
       src: "/lovable-uploads/728f54ed-6f58-4356-b228-93d52d39b788.png",
       alt: "Vidwan H S Venugopal in performance with another musician",
@@ -36,7 +62,7 @@ const GalleryPage = () => {
     }
   ];
   
-  // Define videos for the gallery
+  // Videos section is kept as is
   const videos = [
     {
       id: "u-E3UHNqRTc",
@@ -87,25 +113,25 @@ const GalleryPage = () => {
           <TabsContent value="photos" className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {images.map((image, index) => (
-                <div key={index} className="glass-card overflow-hidden rounded-xl">
+                <Card key={index} className="glass-card overflow-hidden rounded-xl">
                   <AspectImage
                     src={image.src}
                     alt={image.alt}
                     aspectRatio={4/3}
                     className="hover:scale-105 transition-transform duration-300"
                   />
-                  <div className="p-4">
+                  <CardContent className="p-4">
                     <p className="text-sm text-gray-600">{image.description}</p>
-                  </div>
-                </div>
+                  </CardContent>
+                </Card>
               ))}
             </div>
           </TabsContent>
           
           <TabsContent value="videos" className="space-y-8">
-            <div className="grid grid-cols-1 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {videos.map((video, index) => (
-                <div key={index} className="glass-card rounded-xl overflow-hidden">
+                <Card key={index} className="glass-card overflow-hidden rounded-xl">
                   <div className="aspect-w-16 aspect-h-9">
                     <iframe 
                       src={`https://www.youtube.com/embed/${video.id}`}
@@ -115,10 +141,10 @@ const GalleryPage = () => {
                       className="w-full h-full"
                     ></iframe>
                   </div>
-                  <div className="p-6">
-                    <h3 className="font-serif text-xl font-medium mb-2">{video.title}</h3>
-                  </div>
-                </div>
+                  <CardContent className="p-4">
+                    <h3 className="font-serif text-lg font-medium">{video.title}</h3>
+                  </CardContent>
+                </Card>
               ))}
             </div>
           </TabsContent>
