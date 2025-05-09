@@ -3,9 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import AspectImage from '@/components/ui/AspectImage';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
-import { GalleryHorizontal, Video } from "lucide-react";
 
 const GalleryPage = () => {
   // Define images for the gallery - including newly uploaded images
@@ -61,22 +59,6 @@ const GalleryPage = () => {
       description: "Classical music performance with students"
     }
   ];
-  
-  // Videos section is kept as is
-  const videos = [
-    {
-      id: "u-E3UHNqRTc",
-      title: "Carnatic Flute Performance"
-    },
-    {
-      id: "wqxWst-PBjg",
-      title: "Classical Recital"
-    },
-    {
-      id: "OX7D-8VN4Ww",
-      title: "Special Performance"
-    }
-  ];
 
   return (
     <div className="min-h-screen bg-gokulam-light">
@@ -90,65 +72,27 @@ const GalleryPage = () => {
           <span className="inline-block px-3 py-1 mb-2 bg-gokulam-gold/20 text-gokulam-burgundy rounded-full font-serif">
             Media Gallery
           </span>
-          <h1 className="section-title">Our Journey in Images & Videos</h1>
+          <h1 className="section-title">Our Journey in Images</h1>
           <p className="text-xl text-gokulam-dark/80">
             Capturing the essence of Carnatic music through performances, awards, and special moments
           </p>
         </div>
         
-        <Tabs defaultValue="photos" className="w-full">
-          <div className="flex justify-center mb-8">
-            <TabsList className="grid w-full max-w-md grid-cols-2">
-              <TabsTrigger value="photos" className="flex items-center gap-2">
-                <GalleryHorizontal className="h-4 w-4" />
-                <span>Photos</span>
-              </TabsTrigger>
-              <TabsTrigger value="videos" className="flex items-center gap-2">
-                <Video className="h-4 w-4" />
-                <span>Videos</span>
-              </TabsTrigger>
-            </TabsList>
-          </div>
-          
-          <TabsContent value="photos" className="space-y-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {images.map((image, index) => (
-                <Card key={index} className="glass-card overflow-hidden rounded-xl">
-                  <AspectImage
-                    src={image.src}
-                    alt={image.alt}
-                    aspectRatio={4/3}
-                    className="hover:scale-105 transition-transform duration-300"
-                  />
-                  <CardContent className="p-4">
-                    <p className="text-sm text-gray-600">{image.description}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </TabsContent>
-          
-          <TabsContent value="videos" className="space-y-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {videos.map((video, index) => (
-                <Card key={index} className="glass-card overflow-hidden rounded-xl">
-                  <div className="aspect-w-16 aspect-h-9">
-                    <iframe 
-                      src={`https://www.youtube.com/embed/${video.id}`}
-                      title={video.title}
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      className="w-full h-full"
-                    ></iframe>
-                  </div>
-                  <CardContent className="p-4">
-                    <h3 className="font-serif text-lg font-medium">{video.title}</h3>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </TabsContent>
-        </Tabs>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {images.map((image, index) => (
+            <Card key={index} className="glass-card overflow-hidden rounded-xl">
+              <AspectImage
+                src={image.src}
+                alt={image.alt}
+                aspectRatio={4/3}
+                className="hover:scale-105 transition-transform duration-300"
+              />
+              <CardContent className="p-4">
+                <p className="text-sm text-gray-600">{image.description}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
       </main>
       
       <Footer />
