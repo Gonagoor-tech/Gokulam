@@ -5,7 +5,13 @@ import {
   SheetContent,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Menu } from 'lucide-react';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger
+} from "@/components/ui/dropdown-menu";
+import { Menu, ChevronDown } from 'lucide-react';
 import { NavLink } from './NavLink';
 import { NavLinkType } from './types';
 
@@ -31,20 +37,24 @@ export const MobileNav = ({ navLinks, handleNavClick }: MobileNavProps) => {
             {navLinks.map((link, index) => 
               link.hasDropdown ? (
                 <div key={index} className="py-3 border-b border-gokulam-gold/20">
-                  <div className="font-medium text-gokulam-dark text-lg mb-2">
-                    {link.name}
-                  </div>
-                  <div className="pl-4 flex flex-col space-y-3">
-                    {link.items?.map((item, idx) => (
-                      <Link 
-                        key={idx} 
-                        to={item.href} 
-                        className="text-gokulam-dark/80 hover:text-gokulam-burgundy py-1.5 transition-colors duration-300 font-medium text-base"
-                      >
-                        {item.name}
-                      </Link>
-                    ))}
-                  </div>
+                  <DropdownMenu>
+                    <DropdownMenuTrigger className="flex items-center justify-between w-full font-medium text-gokulam-dark text-lg mb-2">
+                      {link.name}
+                      <ChevronDown size={18} />
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent className="min-w-[200px] bg-white">
+                      {link.items?.map((item, idx) => (
+                        <DropdownMenuItem key={idx} asChild>
+                          <Link 
+                            to={item.href} 
+                            className="text-gokulam-dark/80 hover:text-gokulam-burgundy py-1.5 transition-colors duration-300 font-medium text-base w-full"
+                          >
+                            {item.name}
+                          </Link>
+                        </DropdownMenuItem>
+                      ))}
+                    </DropdownMenuContent>
+                  </DropdownMenu>
                 </div>
               ) : (
                 <NavLink 
