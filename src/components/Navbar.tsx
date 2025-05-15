@@ -22,6 +22,7 @@ const Navbar = () => {
     { name: 'Home', href: '/' },
     { 
       name: 'About',
+      href: '/about', // Added href property to fix the type error
       hasDropdown: true,
       items: [
         { name: 'Our Founder', href: '/founder' },
