@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
 
 @tailwind base;
@@ -49,6 +50,7 @@
     @apply bg-gokulam-light text-gokulam-dark font-sans antialiased;
     background-image: url("https://www.transparenttextures.com/patterns/exclusive-paper.png");
     background-repeat: repeat;
+    overflow-x: hidden;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -58,15 +60,15 @@
 
 @layer components {
   .section-container {
-    @apply container mx-auto px-4 py-20 md:py-28;
+    @apply container mx-auto px-4 py-16 md:py-20 lg:py-28;
   }
   
   .section-title {
-    @apply font-serif text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gokulam-burgundy;
+    @apply font-serif text-2xl md:text-3xl lg:text-5xl font-bold mb-4 md:mb-6 text-gokulam-burgundy;
   }
   
   .section-subtitle {
-    @apply font-serif text-xl md:text-2xl font-medium mb-10 text-gokulam-dark/80;
+    @apply font-serif text-lg md:text-xl lg:text-2xl font-medium mb-6 md:mb-10 text-gokulam-dark/80;
   }
   
   .link-underline {
@@ -82,11 +84,11 @@
   }
   
   .button-primary {
-    @apply px-6 py-3 bg-gokulam-burgundy text-white rounded-full hover:bg-gokulam-burgundy/90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 font-medium;
+    @apply px-4 py-2 md:px-6 md:py-3 bg-gokulam-burgundy text-white rounded-full hover:bg-gokulam-burgundy/90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 font-medium;
   }
   
   .button-secondary {
-    @apply px-6 py-3 border-2 border-gokulam-burgundy text-gokulam-burgundy rounded-full hover:bg-gokulam-burgundy/5 transition-all duration-300 font-medium;
+    @apply px-4 py-2 md:px-6 md:py-3 border-2 border-gokulam-burgundy text-gokulam-burgundy rounded-full hover:bg-gokulam-burgundy/5 transition-all duration-300 font-medium;
   }
   
   .decorated-heading {
@@ -94,15 +96,15 @@
   }
   
   .decorated-heading::before, .decorated-heading::after {
-    @apply content-[''] absolute w-12 h-[2px] bg-gokulam-gold top-1/2;
+    @apply content-[''] absolute w-8 md:w-12 h-[2px] bg-gokulam-gold top-1/2;
   }
   
   .decorated-heading::before {
-    @apply -left-16;
+    @apply -left-10 md:-left-16;
   }
   
   .decorated-heading::after {
-    @apply -right-16;
+    @apply -right-10 md:-right-16;
   }
 }
 
