@@ -50,15 +50,6 @@ const AboutUs = () => {
           </div>
           
           <div className="mt-8">
-            <a 
-              href="https://open.spotify.com/artist/5G06dFniw81EaR7vZrs5Cx" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-flex items-center px-6 py-3 bg-gokulam-burgundy text-white rounded-md hover:bg-gokulam-gold transition-all duration-300 mr-4"
-            >
-              <Music className="mr-2 h-5 w-5" />
-              Listen to Performances
-            </a>
           </div>
         </div>
       </div>

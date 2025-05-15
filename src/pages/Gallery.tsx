@@ -72,7 +72,7 @@ const GalleryPage = () => {
           <span className="inline-block px-3 py-1 mb-2 bg-gokulam-gold/20 text-gokulam-burgundy rounded-full font-serif">
             Media Gallery
           </span>
-          <h1 className="section-title">Our Journey in Images</h1>
+          <h1 className="section-title">Our Journey</h1>
           <p className="text-xl text-gokulam-dark/80">
             Capturing the essence of Carnatic music through performances, awards, and special moments
           </p>
@@ -92,9 +92,6 @@ const GalleryPage = () => {
                   <p className="font-serif text-sm md:text-base text-gokulam-burgundy leading-snug tracking-wide font-medium line-clamp-3 hover:line-clamp-none transition-all duration-300">
                     {image.description}
                   </p>
-                  <div className="absolute top-0 right-0 bg-gokulam-gold/10 text-gokulam-burgundy h-8 w-8 flex items-center justify-center rounded-full font-serif font-bold text-sm">
-                    {`A${index + 1}`}
-                  </div>
                 </div>
               </CardContent>
             </Card>

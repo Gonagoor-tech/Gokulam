@@ -167,7 +167,7 @@ const AboutFounder = () => {
  {/* Button to Meet Our Artists section */}
  <Link to="/#artists" className="group">
  <button className="px-8 py-3 rounded-full text-gokulam-burgundy border-2 border-gokulam-burgundy hover:text-gokulam-gold hover:border-gokulam-gold transition-colors duration-300 font-medium flex items-center shadow-lg group-hover:shadow-xl">
- Meet Our Artists
+ Meet Our Artistes
  </button>
  </Link>
 

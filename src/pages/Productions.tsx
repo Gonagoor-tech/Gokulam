@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import Navbar from '@/components/Navbar';
 import { Card } from '@/components/ui/card';
 import { Album } from 'lucide-react';
+import { link } from 'fs';
 
 const Productions = () => {
   const albums = [
@@ -22,15 +23,19 @@ const Productions = () => {
     },
     {
       title: "Mela Raga Malika Part 1",
-      type: "Album"
+      type: "Youtube Video",
+      link: "https://www.youtube.com/watch?v=u-E3UHNqRTc"
+
     },
     {
       title: "Mela Raga Malika Part 2",
-      type: "Album"
+      type: "Album",
+      link: "https://www.youtube.com/watch?v=wqxWst-PBjg"
     },
     {
       title: "Devamanohari",
-      type: "Album"
+      type: "Album",
+      link: "https://www.youtube.com/watch?v=OX7D-8VN4Ww"
     },
     {
       title: "Kayo Enna Gopala",
@@ -77,7 +82,7 @@ const Productions = () => {
                         rel="noopener noreferrer"
                         className="inline-block mt-3 text-gokulam-burgundy hover:text-gokulam-gold transition-colors"
                       >
-                        Listen on Spotify →
+                        Listen  →
                       </a>
                     )}
                   </div>

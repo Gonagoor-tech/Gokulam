@@ -29,20 +29,20 @@ const TimelineSection = () => {
     },
     {
       year: "",
-      title: "'Karnataka Kalashree'",
-      description: "Honored with the 'Karnataka Kalashree' award by Sangeetha Nrithya Academy of Government of Karnataka",
-      isLeft: true
-    },
-    {
-      year: "",
       title: "'Ananya Puraskaar'",
       description: "Received the 'Ananya Puraskaar' Lifetime Achievement Award by Ananya Bengaluru",
-      isLeft: false
+      isLeft: true
     },
     {
       year: "",
       title: "Kempegowda Award",
       description: "Honored with the prestigious Kempegowda Award by the Bruhat Bengaluru Mahanagara Palike (BBMP)",
+      isLeft: false
+    },
+    {
+      year: "",
+      title: "'Karnataka Kalashree'",
+      description: "Honored with the 'Karnataka Kalashree' award by Sangeetha Nrithya Academy of Government of Karnataka",
       isLeft: true
     },
     {
@@ -60,7 +60,7 @@ const TimelineSection = () => {
       <div className="container px-4 mx-auto">
         <div className="max-w-3xl mx-auto text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-800 mb-4">
-            Career Milestones
+            Artistic Journey 
           </h2>
           <div className="w-24 h-1 bg-amber-500 mx-auto mb-6"></div>
           <p className="text-lg text-slate-600">

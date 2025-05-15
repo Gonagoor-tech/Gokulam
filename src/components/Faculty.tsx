@@ -32,7 +32,7 @@ const facultyMembers: FacultyMember[] = [
   },
   {
     id: 2,
-    name: "Varijashree Venugopal",
+    name: "Vidushi Varijashree Venugopal",
     title: " Grammy Nominated Vocalist, Flutist , Music Composer and Educator",
     image: "/lovable-uploads/fa45a359-485a-4cc9-8f08-3dd2968a20ce.png",
     bio: "An accomplished musician following in her father's footsteps, Varijashree has carved her own niche in the world of Carnatic music with her exceptional talent and innovative approach.",
@@ -54,7 +54,7 @@ const facultyMembers: FacultyMember[] = [
   },
   {
     id: 4,
-    name: "Praveen D. Rao",
+    name: "Pt. Praveen D Rao",
     title: "Accomplished Tablaist, Music Composer and Multi Instrument Educator",
     image: "/lovable-uploads/a9a38377-2645-49a6-9aaa-b24efc8ab773.png",
     bio: "A versatile musician and composer, Praveen D. Rao has contributed significantly to the field of music through his compositions and performances.",
@@ -80,7 +80,7 @@ const Faculty = () => {
     <section className="py-24 bg-gradient-to-b from-slate-50 to-slate-100">
       <div className="container px-4 mx-auto">
         <div className="max-w-4xl mx-auto text-center mb-16">
-          <h2 className="text-4xl font-bold text-slate-800 mb-4 font-serif">Meet our Artists</h2>
+          <h2 className="text-4xl font-bold text-slate-800 mb-4 font-serif">Meet Our Artistes</h2>
           <div className="w-24 h-1 bg-amber-500 mx-auto mb-6"></div>
           <p className="text-xl text-slate-600">
             Learn from skilled artists who are passionate about sharing their expertise and nurturing the next generation of performers.

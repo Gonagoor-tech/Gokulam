@@ -34,8 +34,8 @@ const Navbar = () => {
       name: 'About',
       hasDropdown: true,
       items: [
-        { name: 'Founder', href: '/founder' },
-        { name: 'Gallery', href: '/gallery' }
+        { name: 'Our Founder', href: '/founder' },
+        { name: 'Media Gallery', href: '/gallery' }
       ]
     },
     { name: 'Productions', href: '/productions' },
