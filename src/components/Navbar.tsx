@@ -1,7 +1,8 @@
 
 import { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { cn } from '@/lib/utils';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -10,10 +11,13 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import { cn } from '@/lib/utils';
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 
 const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   
   useEffect(() => {
@@ -24,8 +28,6 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-  
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   
   // Updated navLinks with dropdown for Founder and Media
   const navLinks = [
@@ -57,9 +59,6 @@ const Navbar = () => {
           top: y,
           behavior: 'smooth'
         });
-        
-        // Close mobile menu after clicking
-        setIsMenuOpen(false);
       }
     }
   };
@@ -104,7 +103,6 @@ const Navbar = () => {
                             <Link
                               to={item.href}
                               className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                              onClick={() => setIsMenuOpen(false)}
                             >
                               <div className="text-sm font-medium leading-none">{item.name}</div>
                             </Link>
@@ -136,69 +134,59 @@ const Navbar = () => {
           </NavigationMenu>
         </div>
         
-        {/* Mobile Menu Button - Improved visibility */}
-        <button 
-          className="md:hidden flex justify-center items-center h-10 w-10 bg-white/80 text-gokulam-dark hover:text-gokulam-burgundy transition-colors duration-300 rounded-md shadow-md" 
-          onClick={toggleMenu}
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-        >
-          {isMenuOpen ? <X size={22} /> : <Menu size={22} />}
-        </button>
-      </div>
-      
-      {/* Mobile Menu - Improved styling */}
-      <div 
-        className={`md:hidden fixed top-[60px] left-0 w-full transition-all duration-300 ease-in-out ${
-          isMenuOpen 
-            ? 'opacity-100 translate-y-0 visible' 
-            : 'opacity-0 -translate-y-4 invisible'
-        }`}
-      >
-        <div className="container mx-auto px-4 bg-white/95 backdrop-blur-md shadow-lg rounded-b-2xl border border-gokulam-gold/10">
-          <div className="flex flex-col py-4">
-            {navLinks.map((link, index) => 
-              link.hasDropdown ? (
-                <div key={index} className="py-3 border-b border-gokulam-gold/20">
-                  <div className="font-medium text-gokulam-dark flex items-center justify-between">
-                    {link.name} <ChevronDown size={16} className="ml-2" />
-                  </div>
-                  <div className="pl-4 flex flex-col mt-2 space-y-2">
-                    {link.items?.map((item, idx) => (
-                      <Link 
-                        key={idx} 
-                        to={item.href} 
-                        className="text-gokulam-dark/80 hover:text-gokulam-burgundy py-2 transition-colors duration-300 font-medium"
-                        onClick={() => setIsMenuOpen(false)}
-                      >
-                        {item.name}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              ) : link.href.startsWith('/') && !link.href.includes('#') ? (
-                <Link 
-                  key={index} 
-                  to={link.href} 
-                  className="text-gokulam-dark hover:text-gokulam-burgundy py-3 border-b border-gokulam-gold/20 transition-colors duration-300 font-medium"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {link.name}
-                </Link>
-              ) : (
-                <a 
-                  key={index} 
-                  href={link.href} 
-                  className="text-gokulam-dark hover:text-gokulam-burgundy py-3 border-b border-gokulam-gold/20 transition-colors duration-300 font-medium"
-                  onClick={(e) => {
-                    handleNavClick(e, link.href);
-                    setIsMenuOpen(false);
-                  }}
-                >
-                  {link.name}
-                </a>
-              )
-            )}
-          </div>
+        {/* Mobile Menu - Using Sheet Component */}
+        <div className="md:hidden">
+          <Sheet>
+            <SheetTrigger asChild>
+              <button 
+                className="flex justify-center items-center h-10 w-10 bg-white/80 text-gokulam-dark hover:text-gokulam-burgundy transition-colors duration-300 rounded-md shadow-md" 
+                aria-label="Open menu"
+              >
+                <Menu size={22} />
+              </button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-[80%] max-w-sm bg-white pt-12">
+              <nav className="flex flex-col space-y-4">
+                {navLinks.map((link, index) => 
+                  link.hasDropdown ? (
+                    <div key={index} className="py-3 border-b border-gokulam-gold/20">
+                      <div className="font-medium text-gokulam-dark text-lg mb-2">
+                        {link.name}
+                      </div>
+                      <div className="pl-4 flex flex-col space-y-3">
+                        {link.items?.map((item, idx) => (
+                          <Link 
+                            key={idx} 
+                            to={item.href} 
+                            className="text-gokulam-dark/80 hover:text-gokulam-burgundy py-1.5 transition-colors duration-300 font-medium text-base"
+                          >
+                            {item.name}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  ) : link.href.startsWith('/') && !link.href.includes('#') ? (
+                    <Link 
+                      key={index} 
+                      to={link.href} 
+                      className="text-gokulam-dark hover:text-gokulam-burgundy py-3 border-b border-gokulam-gold/20 transition-colors duration-300 font-medium text-lg"
+                    >
+                      {link.name}
+                    </Link>
+                  ) : (
+                    <a 
+                      key={index} 
+                      href={link.href} 
+                      className="text-gokulam-dark hover:text-gokulam-burgundy py-3 border-b border-gokulam-gold/20 transition-colors duration-300 font-medium text-lg"
+                      onClick={(e) => handleNavClick(e, link.href)}
+                    >
+                      {link.name}
+                    </a>
+                  )
+                )}
+              </nav>
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
     </nav>
