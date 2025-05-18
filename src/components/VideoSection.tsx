@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { Youtube, ArrowRight } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const VideoSection = () => {
@@ -58,15 +58,17 @@ const VideoSection = () => {
         </div>
       </div>
       
-      {/* View more link to Gallery page */}
+      {/* Updated link to YouTube channel */}
       <div className="text-center mt-8">
-        <Link 
-          to="/gallery" 
+        <a 
+          href="https://www.youtube.com/@gokulamsangeethashaale" 
+          target="_blank" 
+          rel="noopener noreferrer"
           className="px-6 py-3 bg-gokulam-burgundy text-white rounded-md hover:bg-gokulam-burgundy/90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-flex items-center gap-2"
         >
-          View More in Gallery
-          <ArrowRight size={16} />
-        </Link>
+          Visit Our YouTube Channel
+          <Youtube size={16} />
+        </a>
       </div>
     </section>
   );
