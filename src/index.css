@@ -122,3 +122,11 @@
     @apply absolute left-1/2 transform -translate-x-1/2;
   }
 }
+
+/* Additional mobile timeline styles */
+@media (max-width: 767px) {
+  .timeline-marker-mobile {
+    position: relative;
+    left: -2px;
+  }
+}

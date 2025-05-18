@@ -4,55 +4,53 @@ import TimelineEvent from "./TimelineEvent";
 const TimelineSection = () => {
   const events = [
     {
-      year: "",
+      year: "1975",
       title: "First Professional Performance",
-      description: "Gave his First Professional Performance at Mayasandra Temple",
+      description: "Gave his First Professional Performance at Mayasandra Temple",
       isLeft: true
     },
     {
-      year: "",
+      year: "1991",
       title: "Mysore Palace Recital",
       description: "Performed a historic recital at the Durbar Hall of the Mysore Palace",
       isLeft: false
     },
     {
-      year: "",
+      year: "1995",
       title: "'Sunada Vinoda' Title",
       description: "Conferred with the prestigious title of 'Sunada Vinoda' by Sri Shirdi Sai Baba Mandir, Ulsoor",
       isLeft: true
     },
     {
-      year: "",
+      year: "2005",
       title: "International Tour",
       description: "Completed a successful international tour covering the United States, United Kingdom, and Singapore and many other countries",
       isLeft: false
     },
     {
-      year: "",
+      year: "2010",
       title: "'Ananya Puraskaar'",
       description: "Received the 'Ananya Puraskaar' Lifetime Achievement Award by Ananya Bengaluru",
       isLeft: true
     },
     {
-      year: "",
+      year: "2015",
       title: "Kempegowda Award",
       description: "Honored with the prestigious Kempegowda Award by the Bruhat Bengaluru Mahanagara Palike (BBMP)",
       isLeft: false
     },
     {
-      year: "",
+      year: "2018",
       title: "'Karnataka Kalashree'",
       description: "Honored with the 'Karnataka Kalashree' award by Sangeetha Nrithya Academy of Government of Karnataka",
       isLeft: true
     },
     {
-      year: "",
+      year: "2022",
       title: "'Venu Brahma' Award",
       description: "Received the 'Venu Brahma' award by Shri Naadabrahma Sangeetha Sabha in recognition of his contributions to flute music",
       isLeft: false
     }
-   
-    
   ];
 
   return (
@@ -70,8 +68,11 @@ const TimelineSection = () => {
         </div>
         
         <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 h-full w-1 bg-amber-200"></div>
+          {/* Timeline line - visible only on md and above screens */}
+          <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-amber-200"></div>
+          
+          {/* Mobile timeline line - only visible on small screens */}
+          <div className="md:hidden absolute left-4 h-full w-1 bg-amber-200"></div>
           
           {/* Timeline events */}
           <div className="relative z-10">

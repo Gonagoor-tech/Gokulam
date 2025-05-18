@@ -17,25 +17,26 @@ const TimelineEvent = ({ year, title, description, isLeft }: TimelineEventProps)
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.6, delay: isLeft ? 0 : 0.2 }}
     >
-      <div className="flex flex-col md:flex-row items-center">
+      {/* Desktop version (hidden on mobile) */}
+      <div className="hidden md:flex flex-row items-center">
         {isLeft ? (
           <>
-            <div className="md:w-1/2 md:pr-12 md:text-right mb-6 md:mb-0">
-              <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow md:ml-auto md:mr-0 max-w-md">
+            <div className="w-1/2 pr-12 text-right">
+              <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow ml-auto mr-0 max-w-md">
                 <span className="text-amber-600 font-medium">{year}</span>
                 <h3 className="text-xl font-bold mb-2">{title}</h3>
                 <p className="text-slate-600">{description}</p>
               </div>
             </div>
             <div className="timeline-marker"></div>
-            <div className="md:w-1/2 md:pl-12 hidden md:block"></div>
+            <div className="w-1/2 pl-12 hidden md:block"></div>
           </>
         ) : (
           <>
-            <div className="md:w-1/2 md:pr-12 hidden md:block"></div>
+            <div className="w-1/2 pr-12 hidden md:block"></div>
             <div className="timeline-marker"></div>
-            <div className="md:w-1/2 md:pl-12 mb-6 md:mb-0">
-              <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow md:mr-auto md:ml-0 max-w-md">
+            <div className="w-1/2 pl-12">
+              <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow mr-auto ml-0 max-w-md">
                 <span className="text-amber-600 font-medium">{year}</span>
                 <h3 className="text-xl font-bold mb-2">{title}</h3>
                 <p className="text-slate-600">{description}</p>
@@ -43,6 +44,20 @@ const TimelineEvent = ({ year, title, description, isLeft }: TimelineEventProps)
             </div>
           </>
         )}
+      </div>
+      
+      {/* Mobile version (hidden on desktop) */}
+      <div className="flex md:hidden items-start">
+        <div className="flex-shrink-0 mt-2">
+          <div className="timeline-marker-mobile w-4 h-4 rounded-full bg-amber-500 border-2 border-white shadow-md"></div>
+        </div>
+        <div className="ml-6 bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow w-full">
+          <div className="flex justify-between items-center mb-2">
+            <h3 className="text-lg font-bold">{title}</h3>
+            <span className="text-amber-600 font-medium text-sm">{year}</span>
+          </div>
+          <p className="text-slate-600 text-sm">{description}</p>
+        </div>
       </div>
     </motion.div>
   );
