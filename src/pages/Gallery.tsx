@@ -89,7 +89,7 @@ const GalleryPage = () => {
               />
               <CardContent className="p-5 bg-gradient-to-t from-gokulam-burgundy/5 to-transparent">
                 <div className="relative px-2 py-3 border-l-4 border-gokulam-gold">
-                  <p className="font-serif text-sm md:text-base text-gokulam-burgundy leading-snug tracking-wide font-medium line-clamp-3 hover:line-clamp-none transition-all duration-300">
+                  <p className="font-playfair text-sm md:text-base text-gokulam-burgundy leading-snug tracking-wide font-medium line-clamp-3 hover:line-clamp-none transition-all duration-300">
                     {image.description}
                   </p>
                 </div>
