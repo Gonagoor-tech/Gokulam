@@ -26,10 +26,10 @@ export const MobileNav = ({ navLinks, handleNavClick }: MobileNavProps) => {
       <Sheet>
         <SheetTrigger asChild>
           <button 
-            className="flex justify-center items-center h-10 w-10 bg-white/80 text-gokulam-dark hover:text-gokulam-burgundy transition-colors duration-300 rounded-md shadow-md" 
+            className="fixed top-4 right-4 md:right-auto flex justify-center items-center h-12 w-12 bg-white/90 text-gokulam-dark hover:text-gokulam-burgundy transition-colors duration-300 rounded-md shadow-md z-50" 
             aria-label="Open menu"
           >
-            <Menu size={22} />
+            <Menu size={24} />
           </button>
         </SheetTrigger>
         <SheetContent side="right" className="w-[80%] max-w-sm bg-white pt-12">

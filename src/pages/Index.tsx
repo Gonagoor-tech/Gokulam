@@ -7,15 +7,12 @@ import AboutFounder from "@/components/AboutFounder";
 import Faculty from "@/components/Faculty";
 import VideoSection from "@/components/VideoSection";
 import Footer from "@/components/Footer";
-import { Button } from "@/components/ui/button";
-import { Youtube, ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
 
 const Index = () => {
-  // We're removing the previous useEffect for smooth scrolling as it's now handled in Navbar component
+  // Since the Navbar component now handles visibility directly, we don't need any special logic here
   
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen relative">
       <Navbar />
       <HeroSection />
       <AboutUs />
