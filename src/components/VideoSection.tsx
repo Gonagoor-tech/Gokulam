@@ -7,15 +7,15 @@ import { Card, CardContent } from "@/components/ui/card";
 const VideoSection = () => {
   const videos = [
     {
-      id: "u-E3UHNqRTc",
+      id: "ophoR16PaGU",
       title: "Carnatic Flute Performance"
     },
     {
-      id: "wqxWst-PBjg",
+      id: "UjYh3Diy_Rw",
       title: "Classical Recital"
     },
     {
-      id: "OX7D-8VN4Ww",
+      id: "CaGm1nVajFE",
       title: "Special Performance"
     }
   ];
