@@ -74,7 +74,7 @@ const HeroSection = () => {
             Discover Our Legacy
             <span className="inline-block ml-2 group-hover:translate-x-1 transition-transform">→</span>
           </a>
-          <a href="#faculty" className="button-secondary">
+          <a href="#artists" className="button-secondary">
             Meet Our Artistes 
           </a>
         </div>
