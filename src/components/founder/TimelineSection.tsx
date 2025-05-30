@@ -4,49 +4,49 @@ import TimelineEvent from "./TimelineEvent";
 const TimelineSection = () => {
   const events = [
     {
-      year: "1975",
+      year: "",
       title: "First Professional Performance",
       description: "Gave his First Professional Performance at Mayasandra Temple",
       isLeft: true
     },
     {
-      year: "1991",
+      year: "",
       title: "Mysore Palace Recital",
       description: "Performed a historic recital at the Durbar Hall of the Mysore Palace",
       isLeft: false
     },
     {
-      year: "1995",
+      year: "",
       title: "'Sunada Vinoda' Title",
       description: "Conferred with the prestigious title of 'Sunada Vinoda' by Sri Shirdi Sai Baba Mandir, Ulsoor",
       isLeft: true
     },
     {
-      year: "2005",
+      year: "",
       title: "International Tour",
       description: "Completed a successful international tour covering the United States, United Kingdom, and Singapore and many other countries",
       isLeft: false
     },
     {
-      year: "2010",
+      year: "",
       title: "'Ananya Puraskaar'",
       description: "Received the 'Ananya Puraskaar' Lifetime Achievement Award by Ananya Bengaluru",
       isLeft: true
     },
     {
-      year: "2015",
+      year: "",
       title: "Kempegowda Award",
       description: "Honored with the prestigious Kempegowda Award by the Bruhat Bengaluru Mahanagara Palike (BBMP)",
       isLeft: false
     },
     {
-      year: "2018",
+      year: "",
       title: "'Karnataka Kalashree'",
       description: "Honored with the 'Karnataka Kalashree' award by Sangeetha Nrithya Academy of Government of Karnataka",
       isLeft: true
     },
     {
-      year: "2022",
+      year: "",
       title: "'Venu Brahma' Award",
       description: "Received the 'Venu Brahma' award by Shri Naadabrahma Sangeetha Sabha in recognition of his contributions to flute music",
       isLeft: false

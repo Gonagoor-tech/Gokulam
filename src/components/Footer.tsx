@@ -219,10 +219,6 @@ const Footer = () => {
                 </a>
               </div>
               <div className="flex items-start">
-                <Phone className="mr-3 mt-1 text-gokulam-gold" size={18} />
-                <span className="text-white/80">Contact number to be provided</span>
-              </div>
-              <div className="flex items-start">
                 <MapPin className="mr-3 mt-1 text-gokulam-gold" size={18} />
                 <span className="text-white/80">Bangalore, Karnataka, India</span>
               </div>

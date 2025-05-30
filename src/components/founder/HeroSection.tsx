@@ -37,7 +37,7 @@ const HeroSection = () => {
                   className="bg-white border border-amber-600 text-amber-700 hover:bg-amber-50 px-6 py-3 rounded-md transition-colors flex items-center"
                 >
                   <Calendar className="mr-2 h-5 w-5" />
-                  View Career Milestones
+                  View Artistic
                 </a>
               </div>
             </div>
