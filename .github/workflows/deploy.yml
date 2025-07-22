@@ -2,7 +2,7 @@ name: Auto Deploy to ACE Cloud
 
 on:
   push:
-    branches: [master]
+    branches: [main]
 
 jobs:
   deploy:
